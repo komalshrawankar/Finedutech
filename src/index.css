@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400&display=swap");
+
+
+@keyframes heroLeftToCenter {
+  0% {
+    opacity: 0;
+    transform: translateX(-100vw);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroRightToCenter {
+  0% {
+    opacity: 0;
+    transform: translateX(100vw);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.hero-left-animate {
+  opacity: 0;
+  animation: heroLeftToCenter 1.1s ease-out forwards;
+}
+
+.hero-right-animate {
+  opacity: 0;
+  animation: heroRightToCenter 1.1s ease-out forwards;
+}
+
+.hero-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.hero-delay-2 {
+  animation-delay: 0.4s;
+}
+
+.hero-delay-3 {
+  animation-delay: 0.6s;
+}
+
+.hero-title-font {
+  font-family: "Roketto";
+  font-weight: 550;
+  line-height: 1;
+  letter-spacing: 0;
+}
+p {
+  font-family: "Red Hat Display", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 27px;
+  letter-spacing: 0;
+}
+.font-heading{
+  font-family: "Roketto";
+}
+@keyframes statFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-90px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes statFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(90px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes cardFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.initiative-card-animate {
+  opacity: 0;
+  animation: cardFadeUp 0.7s ease-out forwards;
+}
+
+.stat-left-animate {
+  opacity: 0;
+  animation: statFromLeft 0.8s ease-out forwards;
+}
+
+.stat-right-animate {
+  opacity: 0;
+  animation: statFromRight 0.8s ease-out forwards;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
+@keyframes logoAutoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-scroll-track {
+  animation: logoAutoScroll 18s linear infinite;
+}
+
+.logo-scroll-track:hover {
+  animation-play-state: paused;
+}
+@keyframes schoolLogoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.school-logo-track {
+  animation: schoolLogoScroll 18s linear infinite;
+}
+
+.school-logo-track:hover {
+  animation-play-state: paused;
+}
+@keyframes testimonialCardIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) scale(0.92) rotate(-5deg);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+.testimonial-card-active {
+  animation: testimonialCardIn 0.7s ease-out forwards;
+}
