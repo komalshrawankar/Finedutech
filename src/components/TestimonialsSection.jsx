@@ -108,9 +108,9 @@ const getCardStyle = (index) => {
       className="relative w-full bg-white h-[220vh]  "
     >
       {/* Sticky section */}
-      <div className="sticky top-0 h-screen flex items-center justify-center">
+     <div className="sticky top-[80px] flex items-start justify-center overflow-hidden">
         <div className="w-full mx-auto">
-          <div className="bg-[#2D2D2D] rounded-[28px] sm:rounded-[36px] md:rounded-[42px] px-4 sm:px-6 md:px-10 lg:px-16 pt-10 sm:pt-12 md:pt-14 pb-20 sm:pb-24 md:pb-28 overflow-hidden">
+         <div className="bg-[#2D2D2D] rounded-[28px] sm:rounded-[36px] md:rounded-[42px] px-4 sm:px-6 md:px-10 lg:px-16 pt-8 sm:pt-10 md:pt-12 pb-8 sm:pb-10 md:pb-12 overflow-hidden">
             
             {/* Heading */}
             <div className="text-center mb-7 sm:mb-9">
@@ -125,7 +125,7 @@ const getCardStyle = (index) => {
             </div>
 
             {/* Fixed animation area */}
-          <div className="relative mx-auto w-full max-w-[680px] h-[300px] sm:h-[340px] md:h-[380px] overflow-visible">
+          <div className="relative mx-auto w-full max-w-[680px] h-[170px] sm:h-[200px] md:h-[270px] overflow-visible">
               {testimonials.map((item, index) => (
                 <div
                   key={index}

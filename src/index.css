@@ -1,9 +1,22 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400&display=swap");
 
-
+@font-face {
+  font-family: "Roketto";
+  src: url("./assets/fonts/Roketto.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Red Hat Display";
+  src: url("./assets/fonts/red-hat.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 @keyframes heroLeftToCenter {
   0% {
     opacity: 0;
@@ -51,10 +64,17 @@
 }
 
 .hero-title-font {
-  font-family: "Roketto";
-  font-weight: 550;
-  line-height: 1;
+  font-family: "Roketto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.08;
   letter-spacing: 0;
+  text-align: left;
+  font-synthesis: none;
+}
+
+.hero-title-font span {
+  line-height: 1.08;
 }
 p {
   font-family: "Red Hat Display", sans-serif;
@@ -63,9 +83,11 @@ p {
   font-size: 18px;
   line-height: 27px;
   letter-spacing: 0;
+
 }
 .font-heading{
-  font-family: "Roketto";
+  font-family: "Roketto", sans-serif;
+  font-weight: 400;
 }
 @keyframes statFromLeft {
   0% {
@@ -175,4 +197,71 @@ p {
 
 .testimonial-card-active {
   animation: testimonialCardIn 0.7s ease-out forwards;
+}
+
+.footer-heading {
+  font-family: "Bubblegum Sans", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 0;
+}
+
+
+/* Discover Button */
+.discover-btn {
+  position: relative;
+  overflow: hidden;
+  border-radius: 999px;
+  border-bottom: 3.5px solid #111111;
+  background-color: #5be7f2;
+  padding: 9px 18px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #111111;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.35s ease, border-color 0.35s ease;
+}
+
+.discover-btn span {
+  position: relative;
+  z-index: 2;
+}
+
+.discover-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 0%;
+  width: 100%;
+  background-color: #000000;
+  z-index: 1;
+  transition: height 0.35s ease;
+}
+
+.discover-btn:hover::before {
+  height: 100%;
+}
+
+.discover-btn:hover {
+  color: #5be7f2;
+  border-color: #000000;
+}
+
+/* Responsive button sizing */
+@media (min-width: 640px) {
+  .discover-btn {
+    padding: 10px 20px;
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .discover-btn {
+    padding: 12px 24px;
+    font-size: 15px;
+  }
 }

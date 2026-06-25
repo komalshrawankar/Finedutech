@@ -8,6 +8,8 @@ import SupportedInstitutions from '../components/SupportedInstitutions'
 import ImpactSection from '../components/ImpactSection'
 import PartnerSchoolsSection from '../components/PartnerSchoolsSection'
 import TestimonialsSection from '../components/TestimonialsSection'
+import BlogSection from '../components/BlogSection'
+import Footer from '../components/Footer'
 
 const Home = () => {
   return (
@@ -21,6 +23,8 @@ const Home = () => {
     <ImpactSection/>
     <PartnerSchoolsSection/>
     <TestimonialsSection/>
+    <BlogSection/>
+    <Footer/>
    </>
     
   

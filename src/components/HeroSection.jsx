@@ -13,43 +13,36 @@ const HeroSection = () => {
           <img
             src={heroBg}
             alt="Financial education hero"
-            className="absolute inset-0 w-full h-full object-contain object-center select-none pointer-events-none"
+            className="absolute  object-contain object-center select-none pointer-events-none"
           />
 
           {/* Text Content */}
-          <div className="absolute z-10 left-[14%] top-[22%] sm:left-[15%] md:left-[16%] lg:left-[17%]">
-            
-            <h1 className="hero-title-font">
-              <span className="block hero-left-animate hero-delay-1 text-black text-[28px] sm:text-[38px] md:text-[48px] lg:text-[58px] xl:text-[64px]">
-                Financial Skills
-              </span>
+          {/* Text Content */}
+<div className="absolute left-[13%] top-[18%] z-20 max-w-[430px] sm:left-[12%] sm:top-[17%] md:max-w-[520px] lg:left-[10%] lg:top-[20%] lg:max-w-[640px]">
+  <h1 className="hero-title-font">
+    <span className="block hero-left-animate hero-delay-1 text-black text-[32px] sm:text-[42px] md:text-[52px] lg:text-[64px]">
+      Financial Skills
+    </span>
 
-              <span className="block hero-left-animate hero-delay-2 text-black text-[28px] sm:text-[38px] md:text-[48px] lg:text-[58px] xl:text-[64px]">
-                Stronger Kids
-              </span>
+    <span className="block hero-left-animate hero-delay-2 text-black text-[32px] sm:text-[42px] md:text-[52px] lg:text-[64px]">
+      Stronger Kids
+    </span>
 
-              <span className="block hero-right-animate hero-delay-3 text-[#007BFF] text-[28px] sm:text-[38px] md:text-[48px] lg:text-[58px] xl:text-[64px]">
-                Brighter Futures
-              </span>
-            </h1>
+    <span className="block hero-right-animate hero-delay-3 text-[#007BFF] text-[32px] sm:text-[42px] md:text-[52px] lg:text-[64px]">
+      Brighter Futures
+    </span>
+  </h1>
 
-            <p className="mt-3 max-w-[490px] text-black text-[9px] sm:text-[10px] md:text-[11px] lg:text-[18px] leading-[1.45]">
-              Finedutech empowers kids with literacy and life skills to build
-              confidence, make smart choices, and create a better tomorrow.
-            </p>
+  <p className="mt-3 max-w-[380px] text-[10px] leading-[1.55] text-black sm:mt-4 sm:max-w-[430px] sm:text-[12px] md:text-[16px] lg:max-w-[480px]">
+    Finedutech empowers kids with literacy and life skills to build
+    confidence, make smart choices, and create a better tomorrow.
+  </p>
 
-            <a
-              href="#discover"
-              className="group relative mt-4 inline-flex h-[30px] sm:h-[34px] px-5 sm:px-6 rounded-full overflow-hidden bg-[#67E8F2] text-black shadow-[0_3px_0_#111] items-center justify-center transition-all duration-300 hover:translate-y-[2px] hover:shadow-[0_1px_0_#111]"
-            >
-              <span className="absolute inset-0 bg-black translate-y-[-100%] group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
+  <button className="discover-btn mt-4 sm:mt-5 ">
+    <span>Discover what we do</span>
+  </button>
+</div>
 
-              <span className="relative z-10 text-[11px] sm:text-[13px] font-medium transition-colors duration-300 group-hover:text-[#67E8F2]">
-                Discover what we do
-              </span>
-            </a>
-
-          </div>
         </div>
       </div>
     </section>
