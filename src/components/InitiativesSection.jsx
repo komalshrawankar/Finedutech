@@ -154,52 +154,54 @@ const InitiativesSection = () => {
           </div>
 
           {/* Cards */}
-          <div className="max-w-[1100px] mx-auto py-5 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-            {initiatives.map((item, index) => (
-              <div
-                key={index}
-                className={`group relative overflow-hidden bg-white hover:bg-[#F4BF23] rounded-[18px] sm:rounded-[20px] p-4 sm:p-5 flex items-center gap-4 transition-all duration-500 ease-out ${
-                  startAnimation ? "initiative-card-animate" : "opacity-0"
-                }`}
-                style={{
-                  animationDelay: `${index * 0.12}s`,
-                }}
-              >
-                {/* Image already has shape, so no shape class added */}
-                <img
-                  src={item.image}
-                  alt={item.title}
-                  className="relative z-10 object-contain flex-shrink-0 transition-transform duration-500 ease-out group-hover:scale-[1.03]"
-                />
+          {/* Cards */}
+<div className="max-w-[1100px] mx-auto py-5 grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+  {initiatives.map((item, index) => (
+    <div
+      key={index}
+      className={`group relative overflow-hidden bg-white hover:bg-[#F4BF23] rounded-[18px] sm:rounded-[20px] p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5 transition-all duration-500 ease-out ${
+        startAnimation ? "initiative-card-animate" : "opacity-0"
+      }`}
+      style={{
+        animationDelay: `${index * 0.12}s`,
+      }}
+    >
+      {/* Image */}
+      <img
+        src={item.image}
+        alt={item.title}
+        className="relative z-10 w-full h-[175px] sm:w-[165px] sm:h-[140px] lg:w-[180px] lg:h-[135px] object-cover rounded-[28px] flex-shrink-0 transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+      />
 
-                <div className="relative z-10">
-                  <h2 className="font-heading font-extrabold text-black group-hover:text-black text-[18px] sm:text-[20px] leading-tight transition-colors duration-500">
-                    {item.title}
-                  </h2>
+      {/* Text */}
+      <div className="relative z-10 w-full min-w-0">
+        <h2 className="font-heading font-extrabold text-black group-hover:text-black text-[22px] sm:text-[20px] lg:text-[22px] leading-tight transition-colors duration-500 break-words">
+          {item.title}
+        </h2>
 
-                  <p className="mt-2 text-black group-hover:text-black text-[15px] sm:text-[15px] leading-[17px] transition-colors duration-500">
-                    {item.description}
-                  </p>
+        <p className="mt-2 text-black group-hover:text-black text-left text-[15px] sm:text-[15px] lg:text-[16px] leading-[21px] transition-colors duration-500">
+          {item.description}
+        </p>
 
-                  <a
-                    href="#"
-                    className="group/link relative inline-flex mt-3 text-[11px] sm:text-[12px] font-medium text-black group-hover:text-black overflow-hidden transition-colors duration-500"
-                  >
-                    <span>Learn More</span>
-                    <span className="absolute left-0 bottom-0 w-full h-[2px] bg-[#F5BC18] group-hover:bg-white transition-colors duration-500"></span>
-                    <span className="absolute left-0 bottom-0 w-full h-[2px] bg-[#67E8F2] translate-x-[-100%] group-hover/link:translate-x-0 transition-transform duration-300"></span>
-                  </a>
-                </div>
+        <a
+          href="#"
+          className="group/link relative inline-flex mt-4 text-[12px] sm:text-[12px] font-medium text-black group-hover:text-black overflow-hidden transition-colors duration-500"
+        >
+          <span>Learn More</span>
+          <span className="absolute left-0 bottom-0 w-full h-[2px] bg-[#F5BC18] group-hover:bg-white transition-colors duration-500"></span>
+          <span className="absolute left-0 bottom-0 w-full h-[2px] bg-[#67E8F2] translate-x-[-100%] group-hover/link:translate-x-0 transition-transform duration-300"></span>
+        </a>
+      </div>
 
-                {/* Bottom Right Hover Image */}
-                <img
-                  src={item.hoverImage}
-                  alt=""
-                  className="pointer-events-none absolute right-0 bottom-0 z-0 w-[70px] sm:w-[82px] opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out"
-                />
-              </div>
-            ))}
-          </div>
+      {/* Bottom Right Hover Image */}
+      <img
+        src={item.hoverImage}
+        alt=""
+        className="pointer-events-none absolute right-0 bottom-0 z-0 w-[65px] sm:w-[82px] opacity-0 translate-y-full group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out"
+      />
+    </div>
+  ))}
+</div>
 
           {/* Stats */}
           <div

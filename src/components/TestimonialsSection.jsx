@@ -125,7 +125,7 @@ const getCardStyle = (index) => {
             </div>
 
             {/* Fixed animation area */}
-          <div className="relative mx-auto w-full max-w-[680px] h-[170px] sm:h-[200px] md:h-[370px] overflow-visible">
+          <div className="relative mx-auto w-full max-w-[680px] h-[380px] sm:h-[200px] md:h-[370px] overflow-visible">
               {testimonials.map((item, index) => (
                 <div
                   key={index}
