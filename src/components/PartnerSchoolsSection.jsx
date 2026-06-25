@@ -68,7 +68,7 @@ const PartnerSchoolsSection = () => {
         </div>
 
         {/* Auto Scroll Logos */}
-        <div className="relative w-full ">
+        <div className="relative w-full  mb-5">
          
 
           <div className="flex w-max school-logo-track">

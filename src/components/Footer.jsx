@@ -38,7 +38,7 @@ const Footer = () => {
         />
 
         {/* Main Footer Content */}
-        <div className="relative z-20 px-6 pb-8 pt-[140px] sm:px-10 sm:pt-[150px] lg:px-[90px] lg:pb-10 lg:pt-[160px]">
+        <div className="relative z-20 px-6 pb-12 pt-[140px] sm:px-10 sm:pt-[150px] lg:px-[90px] lg:pb-10 lg:pt-[160px]">
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.35fr_0.7fr_1fr] lg:gap-20">
             {/* About */}
             <div className="max-w-[290px]">

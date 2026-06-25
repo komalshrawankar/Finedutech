@@ -58,7 +58,7 @@ const SupportedInstitutions = () => {
             {[...logos, ...logos, ...logos].map((logo, index) => (
               <div
                 key={index}
-                className="flex items-center justify-center mx-8 sm:mx-10 md:mx-14 lg:mx-16"
+                className="flex items-center justify-center mx-8 sm:mx-10 md:mx-14 lg:mx-6"
               >
                 <img
                   src={logo.image}

@@ -5,6 +5,7 @@ import { HiMenuAlt3 } from "react-icons/hi";
 
 import logo from "../assets/logo.png";
 import boyImg from "../assets/boy.png";
+import RegisterSchoolPopup from "./RegisterSchoolPopup";
 
 const navLinks = [
   { name: "Home", path: "/" },
@@ -17,14 +18,15 @@ const navLinks = [
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? "hidden" : "auto";
+    document.body.style.overflow = isOpen || isRegisterOpen ? "hidden" : "auto";
 
     return () => {
       document.body.style.overflow = "auto";
     };
-  }, [isOpen]);
+  }, [isOpen, isRegisterOpen]);
 
   return (
     <>
@@ -53,7 +55,7 @@ const Navbar = () => {
       </header>
 
       {/* SPACE FOR FIXED NAVBAR */}
-     <div className="h-[72px] sm:h-[80px] md:h-[86px]" />
+      <div className="h-[72px] sm:h-[80px] md:h-[86px]" />
 
       {/* MENU OVERLAY */}
       <div
@@ -94,16 +96,19 @@ const Navbar = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-5 mt-9 sm:mt-10">
-              <a
-                href="/register-school"
-                onClick={() => setIsOpen(false)}
+              <button
+                type="button"
+                onClick={() => {
+                  setIsOpen(false);
+                  setIsRegisterOpen(true);
+                }}
                 className="group relative h-[40px] px-6 sm:px-7 rounded-full overflow-hidden bg-[#67E8F2] text-[#1f1f1f] shadow-[0_4px_0_#111] flex items-center justify-center transition-all duration-300 hover:translate-y-[2px] hover:shadow-[0_2px_0_#111]"
               >
                 <span className="absolute inset-0 bg-black translate-y-[-100%] group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
                 <span className="relative z-10 text-[17px] sm:text-[18px] font-medium transition-colors duration-300 group-hover:text-[#67E8F2]">
                   Register School
                 </span>
-              </a>
+              </button>
 
               <a
                 href="/student-login"
@@ -153,6 +158,11 @@ const Navbar = () => {
           />
         </div>
       </div>
+
+      <RegisterSchoolPopup
+        isOpen={isRegisterOpen}
+        onClose={() => setIsRegisterOpen(false)}
+      />
     </>
   );
 };

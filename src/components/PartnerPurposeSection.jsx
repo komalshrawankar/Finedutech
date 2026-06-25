@@ -18,27 +18,39 @@ const partnerCards = [
     title: "Education Catalysts",
     subtitle: "(Schools & Educators)",
     description: "Empower students with financial wisdom, healthy money habits",
+    fullDescription:
+      "Empower students with financial wisdom, healthy money habits, and future-ready life skills through engaging, experiential, and NEP 2020 aligned learning experiences. Together, we nurture responsible, confident, and financially aware young minds.",
+    footerText: "Shaping informed minds. Building a brighter tomorrow.",
     linkColor: "text-[#E85B8C]",
     borderColor: "border-[#2F80ED]",
     titleColor: "text-[#004A9F]",
+    footerColor: "text-[#004A9F]",
   },
   {
     image: cardImg2,
     title: "Impact Enablers",
     subtitle: "(CSR & Corporate Partners)",
     description: "Create meaningful and measurable social impact by supporting",
+    fullDescription:
+      "Create meaningful and measurable social impact by supporting initiatives that advance financial literacy, youth empowerment, and inclusive education. Partner with us to build financially capable communities and contribute to long-term nation-building.",
+    footerText: "Driving impact today. Building a stronger tomorrow.",
     linkColor: "text-[#E85B8C]",
     borderColor: "border-[#3FA65C]",
     titleColor: "text-[#16803B]",
+    footerColor: "text-[#16803B]",
   },
   {
     image: cardImg3,
     title: "Community Partners",
     subtitle: "(NGOs & Social Groups)",
     description: "Join hands to bring financial education to every child and family",
+    fullDescription:
+      "Join hands to bring financial education to every child and family through community-driven awareness, practical workshops, and accessible learning programs. Together, we can expand financial confidence across diverse learner communities.",
+    footerText: "Stronger communities. Stronger nation.",
     linkColor: "text-[#E85B8C]",
     borderColor: "border-[#A66CFF]",
     titleColor: "text-[#5A35B8]",
+    footerColor: "text-[#5A35B8]",
   },
 ];
 
@@ -67,6 +79,7 @@ const PartnerPurposeSection = () => {
 
   const [isPaused, setIsPaused] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
+  const [expandedIndex, setExpandedIndex] = useState(null);
 
   const dragStartX = useRef(0);
   const dragStartScrollLeft = useRef(0);
@@ -108,14 +121,14 @@ const PartnerPurposeSection = () => {
 
   // Auto scroll one card after few seconds
   useEffect(() => {
-    if (isPaused) return;
+    if (isPaused || expandedIndex !== null) return;
 
     const interval = setInterval(() => {
       scrollToCard(currentIndexRef.current + 1);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, expandedIndex]);
 
   // Update current index when user scrolls manually
   const handleScroll = () => {
@@ -169,6 +182,15 @@ const PartnerPurposeSection = () => {
     setIsDragging(false);
   };
 
+  const handleReadMore = (index) => {
+    setExpandedIndex((prev) => (prev === index ? null : index));
+    setIsPaused(true);
+
+    setTimeout(() => {
+      scrollToCard(index);
+    }, 50);
+  };
+
   return (
     <section className="w-full bg-[#FDEBDD] py-12 sm:py-14 md:py-16 overflow-hidden">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10">
@@ -215,40 +237,103 @@ const PartnerPurposeSection = () => {
               [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]
               ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
             >
-              {partnerCards.map((card, index) => (
-                <div
-                  key={index}
-                  data-partner-card
-                  className={`snap-start shrink-0 w-[280px] sm:w-[330px] md:w-[360px] min-h-[260px] bg-white rounded-[18px] border-[2px] border-dashed ${card.borderColor} p-5 sm:p-6`}
-                >
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    draggable="false"
-                    className="w-[110px] sm:w-[125px] h-auto object-contain mb-5 pointer-events-none"
-                  />
+              {partnerCards.map((card, index) => {
+                const isExpanded = expandedIndex === index;
 
-                  <h3
-                    className={`font-heading font-extrabold ${card.titleColor} text-[20px] sm:text-[22px] leading-tight`}
+                return (
+                  <div
+                    key={index}
+                    data-partner-card
+                    className={`snap-start shrink-0 bg-white rounded-[18px] border-[2px] border-dashed ${card.borderColor} transition-all duration-500 ease-out
+                    w-[280px] sm:w-[330px] md:w-[360px]
+                    ${
+                      isExpanded
+                        ? "min-h-[520px] p-4 sm:p-5"
+                        : "min-h-[245px] p-5 sm:p-6"
+                    }`}
                   >
-                    {card.title}
-                  </h3>
+                    {/* Collapsed Card */}
+                    {!isExpanded && (
+                      <>
+                        <img
+                          src={card.image}
+                          alt={card.title}
+                          draggable="false"
+                          className="w-[118px] h-[88px] sm:w-[128px] sm:h-[92px] object-cover rounded-[8px] mb-5 pointer-events-none"
+                        />
 
-                  <p className="mt-1 text-black font-bold text-[12px] sm:text-[13px] leading-[18px] text-left">
-                    {card.subtitle}
-                  </p>
+                        <h3
+                          className={`font-heading font-extrabold ${card.titleColor} text-[18px] sm:text-[20px] leading-tight`}
+                        >
+                          {card.title}
+                        </h3>
 
-                  <p className="mt-6 text-black/70 text-[13px] sm:text-[14px] leading-[22px] text-left">
-                    {card.description}{" "}
-                    <a
-                      href="#"
-                      className={`${card.linkColor} font-semibold underline underline-offset-2`}
-                    >
-                      Read More
-                    </a>
-                  </p>
-                </div>
-              ))}
+                        <p className="mt-1 text-black font-bold text-[12px] sm:text-[13px] leading-[18px] text-left">
+                          {card.subtitle}
+                        </p>
+
+                        <p className="mt-5 text-black/70 text-[13px] sm:text-[14px] leading-[21px] text-left">
+                          {card.description}{" "}
+                          <button
+                            type="button"
+                            onClick={() => handleReadMore(index)}
+                            className={`${card.linkColor} font-semibold underline underline-offset-2`}
+                          >
+                            Read More
+                          </button>
+                        </p>
+                      </>
+                    )}
+
+                    {/* Expanded Card */}
+                    {isExpanded && (
+                      <div className="flex h-full flex-col">
+                        <img
+                          src={card.image}
+                          alt={card.title}
+                          draggable="false"
+                          className="w-full h-[165px] sm:h-[175px] object-cover rounded-[10px] mb-5 pointer-events-none"
+                        />
+
+                        <h3
+                          className={`font-heading font-extrabold ${card.titleColor} text-[20px] sm:text-[22px] leading-tight`}
+                        >
+                          {card.title}
+                        </h3>
+
+                        <p className="mt-1 text-black font-bold text-[12px] sm:text-[13px] leading-[18px] text-left">
+                          {card.subtitle}
+                        </p>
+
+                        <p className="mt-5 text-black/70 text-[13px] sm:text-[14px] leading-[22px] text-left">
+                          {card.fullDescription}{" "}
+                          <button
+                            type="button"
+                            onClick={() => handleReadMore(index)}
+                            className={`${card.linkColor} font-semibold underline underline-offset-2`}
+                          >
+                            Read Less
+                          </button>
+                        </p>
+
+                        <div className="mt-auto pt-6 flex items-start gap-2">
+                          <span
+                            className={`mt-1 text-[14px] ${card.footerColor}`}
+                          >
+                            <FaPeopleArrows />
+                          </span>
+
+                          <p
+                            className={`${card.footerColor} text-[11px] sm:text-[12px] leading-[17px] font-semibold text-left`}
+                          >
+                            {card.footerText}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
