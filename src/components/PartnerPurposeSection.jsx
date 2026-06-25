@@ -7,7 +7,6 @@ import {
   FaPeopleArrows,
 } from "react-icons/fa";
 
-// Replace these paths with your actual images
 import leftImage from "../assets/images/partner-left.png";
 import cardImg1 from "../assets/images/edu.png";
 import cardImg2 from "../assets/images/edu2.png";
@@ -64,39 +63,111 @@ const bottomItems = [
 
 const PartnerPurposeSection = () => {
   const scrollRef = useRef(null);
-  const [isPaused, setIsPaused] = useState(false);
+  const currentIndexRef = useRef(0);
 
-  useEffect(() => {
+  const [isPaused, setIsPaused] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
+
+  const dragStartX = useRef(0);
+  const dragStartScrollLeft = useRef(0);
+
+  const getCardStep = () => {
+    const el = scrollRef.current;
+    if (!el) return 0;
+
+    const card = el.querySelector("[data-partner-card]");
+    if (!card) return 0;
+
+    const styles = window.getComputedStyle(el);
+    const gap = parseFloat(styles.columnGap || styles.gap || "24");
+
+    return card.offsetWidth + gap;
+  };
+
+  const scrollToCard = (index) => {
     const el = scrollRef.current;
     if (!el) return;
 
-    let animationFrameId;
-    let lastTime = null;
+    const step = getCardStep();
+    if (!step) return;
 
-    const speed = 45; // increase this for faster scroll
+    const maxIndex = partnerCards.length - 1;
 
-    const autoScroll = (time) => {
-      if (!lastTime) lastTime = time;
+    let nextIndex = index;
 
-      const deltaTime = time - lastTime;
-      lastTime = time;
+    if (nextIndex > maxIndex) nextIndex = 0;
+    if (nextIndex < 0) nextIndex = maxIndex;
 
-      if (!isPaused) {
-        el.scrollLeft += (speed * deltaTime) / 1000;
+    currentIndexRef.current = nextIndex;
 
-        // Reset when first duplicate set is finished
-        if (el.scrollLeft >= el.scrollWidth / 2) {
-          el.scrollLeft = 0;
-        }
-      }
+    el.scrollTo({
+      left: step * nextIndex,
+      behavior: "smooth",
+    });
+  };
 
-      animationFrameId = requestAnimationFrame(autoScroll);
-    };
+  // Auto scroll one card after few seconds
+  useEffect(() => {
+    if (isPaused) return;
 
-    animationFrameId = requestAnimationFrame(autoScroll);
+    const interval = setInterval(() => {
+      scrollToCard(currentIndexRef.current + 1);
+    }, 3000);
 
-    return () => cancelAnimationFrame(animationFrameId);
+    return () => clearInterval(interval);
   }, [isPaused]);
+
+  // Update current index when user scrolls manually
+  const handleScroll = () => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    const step = getCardStep();
+    if (!step) return;
+
+    const index = Math.round(el.scrollLeft / step);
+    currentIndexRef.current = Math.max(
+      0,
+      Math.min(index, partnerCards.length - 1)
+    );
+  };
+
+  // Mouse wheel / trackpad horizontal scroll
+  const handleWheel = (e) => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+      e.preventDefault();
+      el.scrollLeft += e.deltaY;
+    }
+  };
+
+  // Drag scroll with mouse
+  const handleMouseDown = (e) => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    setIsDragging(true);
+    setIsPaused(true);
+
+    dragStartX.current = e.pageX;
+    dragStartScrollLeft.current = el.scrollLeft;
+  };
+
+  const handleMouseMove = (e) => {
+    const el = scrollRef.current;
+    if (!el || !isDragging) return;
+
+    e.preventDefault();
+
+    const moveX = e.pageX - dragStartX.current;
+    el.scrollLeft = dragStartScrollLeft.current - moveX;
+  };
+
+  const stopDragging = () => {
+    setIsDragging(false);
+  };
 
   return (
     <section className="w-full bg-[#FDEBDD] py-12 sm:py-14 md:py-16 overflow-hidden">
@@ -108,7 +179,7 @@ const PartnerPurposeSection = () => {
             <span className="text-[#1671DE]">our purpose</span>
           </h2>
 
-          <p className="mt-4 text-black/60 text-[14px] sm:text-[16px] leading-[24px]">
+          <p className="mt-4 text-black/60 text-[14px] sm:text-[16px] leading-[24px] text-center">
             Different roles. One mission. Lasting impact.
           </p>
         </div>
@@ -124,27 +195,37 @@ const PartnerPurposeSection = () => {
             />
           </div>
 
-          {/* Auto Scroll Cards */}
+          {/* One-by-one Scroll Cards */}
           <div className="relative w-full min-w-0 overflow-hidden">
             <div
               ref={scrollRef}
+              onScroll={handleScroll}
+              onWheel={handleWheel}
               onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => setIsPaused(false)}
+              onMouseLeave={() => {
+                setIsPaused(false);
+                stopDragging();
+              }}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={stopDragging}
               onTouchStart={() => setIsPaused(true)}
               onTouchEnd={() => setIsPaused(false)}
-              className="flex w-full max-w-full gap-6 overflow-x-auto pb-4 pr-10
-              [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+              className={`flex w-full max-w-full gap-6 overflow-x-auto pb-4 pr-10 scroll-smooth snap-x snap-mandatory select-none
+              [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]
+              ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
             >
-              {[...partnerCards, ...partnerCards].map((card, index) => (
+              {partnerCards.map((card, index) => (
                 <div
                   key={index}
-                  className={`shrink-0 w-[280px] sm:w-[330px] md:w-[360px] min-h-[260px] bg-white rounded-[18px] border-[2px] border-dashed ${card.borderColor} p-5 sm:p-6`}
+                  data-partner-card
+                  className={`snap-start shrink-0 w-[280px] sm:w-[330px] md:w-[360px] min-h-[260px] bg-white rounded-[18px] border-[2px] border-dashed ${card.borderColor} p-5 sm:p-6`}
                 >
-                  {/* Image already has shape */}
                   <img
                     src={card.image}
                     alt={card.title}
-                    className="w-[110px] sm:w-[125px] h-auto object-contain mb-5"
+                    draggable="false"
+                    className="w-[110px] sm:w-[125px] h-auto object-contain mb-5 pointer-events-none"
                   />
 
                   <h3
@@ -153,11 +234,11 @@ const PartnerPurposeSection = () => {
                     {card.title}
                   </h3>
 
-                  <p className="mt-1 text-black font-bold text-[12px] sm:text-[13px] leading-[18px]">
+                  <p className="mt-1 text-black font-bold text-[12px] sm:text-[13px] leading-[18px] text-left">
                     {card.subtitle}
                   </p>
 
-                  <p className="mt-6 text-black/70 text-[13px] sm:text-[14px] leading-[22px]">
+                  <p className="mt-6 text-black/70 text-[13px] sm:text-[14px] leading-[22px] text-left">
                     {card.description}{" "}
                     <a
                       href="#"
@@ -186,7 +267,7 @@ const PartnerPurposeSection = () => {
                   When we partner with purpose,
                 </h4>
 
-                <p className="text-[#004A9F] text-[13px] sm:text-[14px] leading-[20px]">
+                <p className="text-[#004A9F] text-[13px] sm:text-[14px] leading-[20px] text-left">
                   We empower generations.
                 </p>
               </div>
