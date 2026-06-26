@@ -21,7 +21,7 @@ const Footer = () => {
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr] lg:gap-24">
             {/* About */}
             <div className="max-w-full sm:max-w-[520px]">
-              <h2 className="mb-4 text-white text-[25px]">
+              <h2 className=" footer-heading mb-4 text-white text-[25px]">
                 About Company.
               </h2>
 
@@ -33,13 +33,13 @@ const Footer = () => {
               </p>
 
               <div className="mt-5">
-                <h4 className=" mb-2 text-white">
+                <h4 className="normal mb-2 text-white">
                   Email Address
                 </h4>
 
                 <a
                   href="mailto:fineduquest@gmail.com"
-                  className="text-[14px] sm:text-[15px] font-light text-[#E5E5E5] transition hover:text-white"
+                  className=" normal text-[14px] sm:text-[15px] font-light text-[#E5E5E5] transition hover:text-white"
                 >
                   fineduquest@gmail.com
                 </a>
@@ -83,7 +83,7 @@ const Footer = () => {
 
             {/* Quick Links */}
             <div>
-              <h3 className=" mb-5 text-white  text-[25px]">
+              <h3 className="  footer-heading mb-5 text-white  text-[25px]">
                 Quick Links
               </h3>
 
@@ -92,7 +92,7 @@ const Footer = () => {
                   <li key={index}>
                     <a
                       href={link.path}
-                      className="text-[14px] sm:text-[15px] font-light text-[#E5E5E5] transition hover:text-white"
+                      className=" normal text-[14px] sm:text-[15px] font-light text-[#E5E5E5] transition hover:text-white"
                     >
                       {link.name}
                     </a>

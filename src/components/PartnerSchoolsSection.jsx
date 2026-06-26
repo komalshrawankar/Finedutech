@@ -2,7 +2,7 @@
 import React from "react";
 
 // Replace these paths with your actual logo imports
-import logo1 from "../assets/images/n1.png";
+import logo1 from "../assets/images/n11.png";
 import logo2 from "../assets/images/n2.png";
 import logo3 from "../assets/images/n11.png";
 import logo4 from "../assets/images/n4.png";
@@ -17,7 +17,7 @@ const schoolLogos = [
   {
     image: logo1,
     alt: "Podar Education Network",
-    className: "h-[65px] md:h-[80px] lg:h-[95px] w-auto",
+    className: "h-[65px] md:h-[80px] lg:h-[155px] w-auto",
   },
   {
     image: logo2,
