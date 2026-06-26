@@ -21,9 +21,9 @@ const Footer = () => {
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr] lg:gap-24">
             {/* About */}
             <div className="max-w-full sm:max-w-[520px]">
-              <h3 className="footer-heading mb-4 text-white">
+              <h2 className="mb-4 text-white text-[25px]">
                 About Company.
-              </h3>
+              </h2>
 
               <p className="!text-left !text-[12px] sm:!text-[14px] !font-light !leading-[1.55] !text-[#E5E5E5]">
                 The only exam in India that incorporates financial literacy from
@@ -33,7 +33,7 @@ const Footer = () => {
               </p>
 
               <div className="mt-5">
-                <h4 className="footer-heading mb-2 text-white">
+                <h4 className=" mb-2 text-white">
                   Email Address
                 </h4>
 
@@ -83,7 +83,7 @@ const Footer = () => {
 
             {/* Quick Links */}
             <div>
-              <h3 className="footer-heading mb-5 text-white">
+              <h3 className=" mb-5 text-white  text-[25px]">
                 Quick Links
               </h3>
 
@@ -116,20 +116,20 @@ const Footer = () => {
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
               <a
                 href="#"
-                className="text-[12px] sm:text-[13px] font-semibold hover:text-[#dddddd]"
+                className="text-[15px] sm:text-[15px] font-semibold hover:text-[#dddddd]"
               >
                 Privacy Policy
               </a>
 
               <a
                 href="#"
-                className="text-[12px] sm:text-[13px] font-semibold hover:text-[#dddddd]"
+                className="text-[12px] sm:text-[15px] font-semibold hover:text-[#dddddd]"
               >
                 Terms & Conditions
               </a>
             </div>
 
-            <p className="!text-left sm:!text-right !text-[11px] sm:!text-[12px] !font-semibold !leading-[1.45] !text-white max-w-full sm:max-w-[520px]">
+            <p className="!text-left sm:!text-right !text-[11px] sm:!text-[15px] !font-semibold !leading-[1.45] !text-white max-w-full sm:max-w-[520px]">
               Copyright © 2026 Financial Education Quest. All Rights Reserved.
               Designed by adbornsolutions.
             </p>

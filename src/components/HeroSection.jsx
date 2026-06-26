@@ -33,9 +33,9 @@ const HeroSection = () => {
     </span>
   </h1>
 
-  <p className="mt-3 max-w-[180px] text-[10px] leading-[1.55] text-black sm:mt-4 sm:max-w-[430px] sm:text-[12px] md:text-[16px] lg:max-w-[480px]">
-    Starting from Grade 1 
-  </p>
+  <h1 className="mt-3 max-w-[180px] text-[18px] leading-[1.55] text-black sm:mt-4 sm:max-w-[430px] sm:text-[12px] md:text-[20px] lg:max-w-[480px]">
+    Right from Grade 1 
+  </h1>
 
   <button className="discover-btn mt-4 sm:mt-5 ">
     <span>Discover what we do</span>

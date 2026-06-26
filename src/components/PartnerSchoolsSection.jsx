@@ -17,49 +17,49 @@ const schoolLogos = [
   {
     image: logo1,
     alt: "Podar Education Network",
-    className: "h-[54px] sm:h-[44px] md:h-[55px] lg:h-[65px] w-auto",
+    className: "h-[65px] md:h-[80px] lg:h-[95px] w-auto",
   },
   {
     image: logo2,
     alt: "Partner School",
     className:
-      "h-[70px] sm:h-[65px] md:h-[85px] lg:h-[110px] w-[150px] sm:w-[170px] md:w-[210px] lg:w-[200px]",
+      "h-[80px] md:h-[100px] lg:h-[95px] w-[160px] md:w-[190px] lg:w-[160px]",
   },
   {
     image: logo3,
     alt: "Partner School",
     className:
-      "h-[70px] sm:h-[65px] md:h-[85px] lg:h-[130px] w-[150px] sm:w-[170px] md:w-[210px] lg:w-[200px]",
+      "h-[80px] md:h-[105px] lg:h-[120px] w-[160px] md:w-[200px] lg:w-[230px]",
   },
   {
     image: logo4,
     alt: "Birla Open Minds International School",
-    className: "h-[54px] sm:h-[44px] md:h-[55px] lg:h-[65px] w-auto",
+    className: "h-[65px] md:h-[80px] lg:h-[95px] w-auto",
   },
   {
     image: logo5,
     alt: "Partner School",
-    className: "h-[54px] sm:h-[44px] md:h-[55px] lg:h-[65px] w-auto",
+    className: "h-[65px] md:h-[80px] lg:h-[95px] w-auto",
   },
   {
     image: logo6,
     alt: "St. Vincent Pallotti College",
-    className: "h-[54px] sm:h-[44px] md:h-[55px] lg:h-[65px] w-auto",
+    className: "h-[65px] md:h-[80px] lg:h-[95px] w-auto",
   },
   {
     image: logo7,
     alt: "Birla Open Minds International School",
-    className: "h-[54px] sm:h-[44px] md:h-[55px] lg:h-[65px] w-auto",
+    className: "h-[65px] md:h-[80px] lg:h-[95px] w-auto",
   },
   {
     image: logo8,
     alt: "Partner School",
-    className: "h-[54px] sm:h-[44px] md:h-[55px] lg:h-[65px] w-auto",
+    className: "h-[65px] md:h-[80px] lg:h-[95px] w-auto",
   },
   {
     image: logo9,
     alt: "St. Vincent Pallotti College",
-    className: "h-[54px] sm:h-[44px] md:h-[55px] lg:h-[65px] w-auto",
+    className: "h-[65px] md:h-[80px] lg:h-[95px] w-auto",
   },
 ];
 

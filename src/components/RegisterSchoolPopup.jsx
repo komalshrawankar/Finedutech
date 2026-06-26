@@ -1,30 +1,44 @@
 import React, { useState } from "react";
 import { IoClose } from "react-icons/io5";
-
-// Replace with your trophy image
 import trophyImg from "../assets/images/trophy.png";
 
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwvn8CqNWLzx0yQQ0AEFVMNg4bu2eU_xwp0YmfxupWh0yWj6tmDbhXf8iP2eelFI00X/exec";
+const SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbw8v1AoBaR3sHoRF8bc86YZtq2W8CvVyb0LiPEp6wS3gcuj1BdFLFI8hzeFpIL2BIifXA/exec";
 
 const initialForm = {
   schoolName: "",
   contactPerson: "",
-  email: "",
   designation: "",
   phone: "",
-  city: "",
-  message: "",
 };
 
 const RegisterSchoolPopup = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState(initialForm);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [phoneError, setPhoneError] = useState("");
 
   if (!isOpen) return null;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+
+    if (name === "phone") {
+      const onlyNumbers = value.replace(/\D/g, "").slice(0, 10);
+
+      setFormData((prev) => ({
+        ...prev,
+        phone: onlyNumbers,
+      }));
+
+      if (onlyNumbers.length > 0 && onlyNumbers.length < 10) {
+        setPhoneError("Phone number must be exactly 10 digits");
+      } else {
+        setPhoneError("");
+      }
+
+      return;
+    }
 
     setFormData((prev) => ({
       ...prev,
@@ -36,49 +50,51 @@ const RegisterSchoolPopup = ({ isOpen, onClose }) => {
     setFormData(initialForm);
     setIsSuccess(false);
     setIsSubmitting(false);
+    setPhoneError("");
     onClose();
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  setIsSubmitting(true);
+    if (formData.phone.length !== 10) {
+      setPhoneError("Phone number must be exactly 10 digits");
+      return;
+    }
 
-  try {
-    const formBody = new URLSearchParams();
+    setIsSubmitting(true);
 
-    formBody.append("schoolName", formData.schoolName);
-    formBody.append("contactPerson", formData.contactPerson);
-    formBody.append("email", formData.email);
-    formBody.append("designation", formData.designation);
-    formBody.append("phone", formData.phone);
-    formBody.append("city", formData.city);
-    formBody.append("message", formData.message);
+    try {
+      const formBody = new URLSearchParams();
 
-    await fetch(SCRIPT_URL, {
-      method: "POST",
-      mode: "no-cors",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: formBody.toString(),
-    });
+      formBody.append("schoolName", formData.schoolName);
+      formBody.append("contactPerson", formData.contactPerson);
+      formBody.append("designation", formData.designation);
+      formBody.append("phone", formData.phone);
 
-    setIsSuccess(true);
-    setFormData(initialForm);
-  } catch (error) {
-    console.error("Form submit error:", error);
-    alert("Something went wrong. Please try again.");
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+      await fetch(SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formBody.toString(),
+      });
+
+      setIsSuccess(true);
+      setFormData(initialForm);
+    } catch (error) {
+      console.error("Form submit error:", error);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="fixed inset-0 z-[10000] bg-black/85 flex items-center justify-center px-4 py-6">
       {!isSuccess ? (
-        <div className="relative w-full max-w-[760px] rounded-[10px] bg-white px-6 sm:px-10 py-8 sm:py-10">
-          {/* Close Button */}
+        <div className="relative w-full max-w-[560px] rounded-[10px] bg-white px-6 sm:px-10 py-8 sm:py-10">
           <button
             type="button"
             onClick={handleClose}
@@ -88,22 +104,20 @@ const RegisterSchoolPopup = ({ isOpen, onClose }) => {
             <IoClose className="text-[26px]" />
           </button>
 
-          {/* Heading */}
-          <div className="mb-6 max-w-[560px]">
+          <div className="mb-6 max-w-[640px]">
             <h2 className="font-heading text-[26px] sm:text-[30px] leading-none text-black">
               Register Your School for{" "}
-              <span className="text-[#007BFF]">FinEdutect</span>
+              <br /><span className="text-[#007BFF]">Fin-Edu Quest</span>
             </h2>
 
             <p className="mt-3 text-left text-[13px] sm:text-[14px] leading-[20px] text-[#555]">
               Fill out the form below to enroll your school in our financial
-              literacy program. Our team will guide you through the process.
+              literacy program.
             </p>
           </div>
 
-          {/* Form */}
           <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+            <div className="grid grid-cols-1 gap-4">
               <div>
                 <label className="mb-1 block text-[13px] font-medium text-black">
                   School Name*
@@ -114,14 +128,14 @@ const RegisterSchoolPopup = ({ isOpen, onClose }) => {
                   value={formData.schoolName}
                   onChange={handleChange}
                   required
-                  placeholder="Enter your school's full name"
+                  placeholder="School name"
                   className="h-[42px] w-full rounded-[6px] border border-[#cfd6df] px-3 text-[13px] outline-none focus:border-[#007BFF]"
                 />
               </div>
 
               <div>
                 <label className="mb-1 block text-[13px] font-medium text-black">
-                  Contact Person Name*
+                  Contact Person*
                 </label>
                 <input
                   type="text"
@@ -129,22 +143,7 @@ const RegisterSchoolPopup = ({ isOpen, onClose }) => {
                   value={formData.contactPerson}
                   onChange={handleChange}
                   required
-                  placeholder="Enter your name"
-                  className="h-[42px] w-full rounded-[6px] border border-[#cfd6df] px-3 text-[13px] outline-none focus:border-[#007BFF]"
-                />
-              </div>
-
-              <div>
-                <label className="mb-1 block text-[13px] font-medium text-black">
-                  Email Address*
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                  placeholder="Enter a valid email address"
+                  placeholder="Contact person"
                   className="h-[42px] w-full rounded-[6px] border border-[#cfd6df] px-3 text-[13px] outline-none focus:border-[#007BFF]"
                 />
               </div>
@@ -159,14 +158,14 @@ const RegisterSchoolPopup = ({ isOpen, onClose }) => {
                   value={formData.designation}
                   onChange={handleChange}
                   required
-                  placeholder="Principal / Teacher / Administrator"
+                  placeholder="Principal / Teacher"
                   className="h-[42px] w-full rounded-[6px] border border-[#cfd6df] px-3 text-[13px] outline-none focus:border-[#007BFF]"
                 />
               </div>
 
               <div>
                 <label className="mb-1 block text-[13px] font-medium text-black">
-                  Phone / Mobile Number*
+                  Phone Number*
                 </label>
                 <input
                   type="tel"
@@ -174,38 +173,17 @@ const RegisterSchoolPopup = ({ isOpen, onClose }) => {
                   value={formData.phone}
                   onChange={handleChange}
                   required
-                  placeholder="Enter contact number with country code"
+                  inputMode="numeric"
+                  maxLength={10}
+                  placeholder="10 digit number"
                   className="h-[42px] w-full rounded-[6px] border border-[#cfd6df] px-3 text-[13px] outline-none focus:border-[#007BFF]"
                 />
+                {phoneError && (
+                  <p className="mt-1 text-[12px] text-red-500">
+                    {phoneError}
+                  </p>
+                )}
               </div>
-
-              <div>
-                <label className="mb-1 block text-[13px] font-medium text-black">
-                  City / State*
-                </label>
-                <input
-                  type="text"
-                  name="city"
-                  value={formData.city}
-                  onChange={handleChange}
-                  required
-                  placeholder="Enter city and state"
-                  className="h-[42px] w-full rounded-[6px] border border-[#cfd6df] px-3 text-[13px] outline-none focus:border-[#007BFF]"
-                />
-              </div>
-            </div>
-
-            <div className="mt-4">
-              <label className="mb-1 block text-[13px] font-medium text-black">
-                Message / Notes
-              </label>
-              <textarea
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Additional details or questions (optional)"
-                className="h-[110px] w-full resize-none rounded-[6px] border border-[#cfd6df] px-3 py-3 text-[13px] outline-none focus:border-[#007BFF]"
-              />
             </div>
 
             <div className="mt-6 border-t border-[#d7dce2] pt-6 flex justify-end">
@@ -214,7 +192,7 @@ const RegisterSchoolPopup = ({ isOpen, onClose }) => {
                 disabled={isSubmitting}
                 className="rounded-full bg-[#FFC928] px-6 py-3 text-[13px] font-medium text-black shadow-[0_3px_0_#111] transition hover:translate-y-[2px] hover:shadow-[0_1px_0_#111] disabled:cursor-not-allowed disabled:opacity-70"
               >
-                {isSubmitting ? "Submitting..." : "Submit Registration"}
+                {isSubmitting ? "Submitting..." : "Request a callback"}
               </button>
             </div>
           </form>
@@ -232,9 +210,8 @@ const RegisterSchoolPopup = ({ isOpen, onClose }) => {
           </h2>
 
           <p className="mx-auto mt-5 max-w-[410px] text-center text-[14px] leading-[22px] text-[#555]">
-            Your school has been successfully registered for Fin-edu Quest . Our
-            team will contact you shortly with next steps to get your students
-            started on their financial literacy journey.
+            Your school has been successfully registered for Fin-edu Quest. Our
+            team will contact you shortly.
           </p>
 
           <button

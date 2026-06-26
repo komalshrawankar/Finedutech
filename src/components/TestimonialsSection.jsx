@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 
 // Replace these image paths
-import schoolLogo1 from "../assets/images/t1.png";
-import schoolLogo2 from "../assets/images/t2.png";
-import schoolLogo3 from "../assets/images/t3.png";
+import schoolLogo1 from "../assets/images/t11.png";
+import schoolLogo2 from "../assets/images/t22.png";
+import schoolLogo3 from "../assets/images/t33.jpg";
 
 import avatar1 from "../assets/images/user.png";
 import avatar2 from "../assets/images/user.png";
@@ -13,26 +13,26 @@ const testimonials = [
   {
     logo: schoolLogo1,
     quote:
-      "The structured curriculum and study materials made teaching financial literacy enjoyable and effective. Our students are more confident managing money now.",
-    avatar: avatar1,
-    name: "Greenfield Academy",
-    role: "Teacher",
+      "She is very clear about 50 30 20 rule and she do it now with her pocket money.",
+    
+    name: "Kunal Shah",
+    role: "Parent",
   },
   {
     logo: schoolLogo2,
     quote:
-      "The structured curriculum and study materials made teaching financial literacy enjoyable and effective. Our students are more confident managing money now.",
-    avatar: avatar2,
-    name: "Greenfield Academy",
-    role: "Teacher",
+      "She started using money carefully and started explaining the importance of financial management to everyone",
+   
+    name: "Nikhil Joshi",
+    role: "Parent",
   },
   {
     logo: schoolLogo3,
     quote:
-      "The structured curriculum and study materials made teaching financial literacy enjoyable and effective. Our students are more confident managing money now.",
-    avatar: avatar3,
-    name: "Greenfield Academy",
-    role: "Teacher",
+      "We sincerely thank the school for introducing Fin Edu Quest to our children. It is by far one of the most meaningful, useful, and practical assessments my child has taken. Beyond academics, it helps children develop essential financial life skills and money management habits that will benefit them throughout their lives.",
+   
+    name: "Yash Thakur",
+    role: "Parent",
   },
 ];
 
@@ -151,11 +151,7 @@ const getCardStyle = (index) => {
                         </p>
 
                         <div className="mt-5 flex items-center justify-center md:justify-start gap-3">
-                          <img
-                            src={item.avatar}
-                            alt={item.name}
-                            className="w-[40px] h-[40px] sm:w-[46px] sm:h-[46px] rounded-full object-cover"
-                          />
+                          
 
                           <div>
                             <h4 className="text-white font-bold text-[12px] sm:text-[14px] leading-tight">

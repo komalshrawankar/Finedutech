@@ -95,12 +95,12 @@ const InitiativesSection = () => {
                   animationDelay: `${index * 0.12}s`,
                 }}
               >
-                <div className="group relative overflow-hidden bg-white hover:bg-[#F4BF23] rounded-[20px] sm:rounded-[20px] p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 w-full max-w-[520px] min-h-[200px] transition-all duration-500 ease-out">
+                <div className="group relative overflow-hidden bg-white hover:bg-[#F4BF23] rounded-[20px] sm:rounded-[20px] p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 w-full max-w-[520px] min-h-[250px] transition-all duration-500 ease-out">
                   
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="relative z-10 w-full h-[180px] sm:w-[170px] sm:h-[135px] object-contain flex-shrink-0 transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                    className="relative z-10 w-full h-[180px] sm:w-[170px] sm:h-[185px] object-contain flex-shrink-0 transition-transform duration-500 ease-out group-hover:scale-[1.03]"
                   />
 
                   <div className="relative z-10 w-full min-w-0 sm:flex-1">

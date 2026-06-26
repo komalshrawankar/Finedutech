@@ -42,8 +42,8 @@ const SupportedInstitutions = () => {
         {/* Heading */}
         <div className="text-center mb-10 sm:mb-12">
           <h1 className="font-heading font-extrabold text-black leading-[1.2] text-[28px] sm:text-[36px] md:text-[45px]">
-            Supported by Major
-            <br className="hidden sm:block" />
+            Supported by Major <br />
+            
             <span className="text-[#1671DE]">Financial</span>{" "}
             <span className="text-[#1671DE]">Institutions</span> of India
           </h1>
