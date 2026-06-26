@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 // Replace these image paths
-import schoolLogo1 from "../assets/images/t11.png";
+import schoolLogo1 from "../assets/images/podar.png";
 import schoolLogo2 from "../assets/images/t22.png";
 import schoolLogo3 from "../assets/images/t33.jpg";
 

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { FaInstagram, FaFacebookF, FaYoutube } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { HiMenuAlt3 } from "react-icons/hi";
@@ -32,13 +33,13 @@ const Navbar = () => {
     <>
       <header className="fixed top-0 left-0 w-full bg-white border-t-[4px] border-[#20343b] z-[9997]">
         <nav className="h-[95px] sm:h-[105px] md:h-[120px] lg:h-[140px] flex items-center justify-between px-6 sm:px-12 md:px-20 lg:px-24">
-          <a href="/" className="inline-block">
+          <Link to="/" className="inline-block">
             <img
               src={logo}
               alt="Logo"
               className="w-[125px] sm:w-[145px] md:w-[165px] lg:w-[185px] h-auto object-contain pt-6 me-5"
             />
-          </a>
+          </Link>
 
           <button
             type="button"
@@ -72,8 +73,8 @@ const Navbar = () => {
             <ul className="space-y-6 sm:space-y-7 md:space-y-8">
               {navLinks.map((link, index) => (
                 <li key={link.name}>
-                  <a
-                    href={link.path}
+                  <Link
+                    to={link.path}
                     onClick={() => setIsOpen(false)}
                     className={`block font-heading font-extrabold text-[34px] sm:text-[40px] md:text-[42px] lg:text-[44px] leading-none tracking-[-1px] transition-colors duration-300 ${
                       index === 0
@@ -82,7 +83,7 @@ const Navbar = () => {
                     }`}
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -102,8 +103,8 @@ const Navbar = () => {
                 </span>
               </button>
 
-              <a
-                href="/student-login"
+              <Link
+                to="/student-login"
                 onClick={() => setIsOpen(false)}
                 className="group relative h-[40px] px-6 sm:px-7 rounded-full overflow-hidden bg-[#F5BC18] text-[#1f1f1f] shadow-[0_4px_0_#111] flex items-center justify-center transition-all duration-300 hover:translate-y-[2px] hover:shadow-[0_2px_0_#111]"
               >
@@ -111,7 +112,7 @@ const Navbar = () => {
                 <span className="relative z-10 text-[17px] sm:text-[18px] font-medium transition-colors duration-300 group-hover:text-[#F5BC18]">
                   Student Login
                 </span>
-              </a>
+              </Link>
             </div>
 
             <div className="flex items-center gap-4 mt-10">
