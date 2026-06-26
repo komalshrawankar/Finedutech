@@ -153,13 +153,13 @@ const InitiativesSection = () => {
             </p>
           </div>
 
-          {/* Cards */}
+          
          {/* Cards */}
 <div className="max-w-[1100px] mx-auto py-5 grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
   {initiatives.map((item, index) => (
     <div
       key={index}
-     className={`group relative overflow-hidden bg-white hover:bg-[#F4BF23] rounded-[18px] sm:rounded-[20px] p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 min-h-[300px] sm:min-h-[185px] lg:min-h-[195px] transition-all duration-500 ease-out ${
+     className={`group relative overflow-hidden bg-white hover:bg-[#F4BF23] rounded-[18px] sm:rounded-[20px] p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 min-h-[300px] sm:min-h-[185px] lg:min-h-[205px] transition-all duration-500 ease-out ${
   startAnimation ? "initiative-card-animate" : "opacity-0"
 }`}
       style={{
@@ -170,7 +170,7 @@ const InitiativesSection = () => {
       <img
         src={item.image}
         alt={item.title}
-       className="relative z-10 w-full h-[175px] sm:w-[170px] sm:h-[135px] lg:w-[190px] lg:h-[145px] object-contain flex-shrink-0 transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+       className="relative z-10 w-full h-[195px] sm:w-[170px] sm:h-[135px] lg:w-[190px] lg:h-[145px] object-contain flex-shrink-0 transition-transform duration-500 ease-out group-hover:scale-[1.03]"
       />
 
      <div className="relative z-10 w-full min-w-0 sm:flex-1">
@@ -178,7 +178,7 @@ const InitiativesSection = () => {
           {item.title}
         </h2>
 
-        <p className="mt-2 text-left text-black group-hover:text-black text-[15px] sm:text-[15px] leading-[20px] transition-colors duration-500">
+        <p className="mt-2 text-left text-black group-hover:text-black text-[18px] sm:text-[15px] leading-[20px] transition-colors duration-500">
           {item.description}
         </p>
 

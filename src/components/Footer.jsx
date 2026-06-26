@@ -17,8 +17,8 @@ const quickLinks = [
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-white pt-5">
-      <div className="relative mx-auto overflow-hidden rounded-t-[28px] sm:rounded-t-[34px] bg-[#2B2B2B] text-white">
+    <footer className="w-full bg-white pt-5 ">
+      <div className="relative mx-auto overflow-hidden rounded-t-[28px] sm:rounded-t-[34px] bg-[#2B2B2B] text-white py-8">
         {/* Decorative Images */}
         <img
           src={sunIcon}
