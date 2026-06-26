@@ -7,7 +7,6 @@ import {
   FaPeopleArrows,
 } from "react-icons/fa";
 
-import leftImage from "../assets/images/partner-left.png";
 import cardImg1 from "../assets/images/edu.png";
 import cardImg2 from "../assets/images/edu2.png";
 import cardImg3 from "../assets/images/edu2.png";
@@ -105,7 +104,6 @@ const PartnerPurposeSection = () => {
     if (!step) return;
 
     const maxIndex = partnerCards.length - 1;
-
     let nextIndex = index;
 
     if (nextIndex > maxIndex) nextIndex = 0;
@@ -119,7 +117,6 @@ const PartnerPurposeSection = () => {
     });
   };
 
-  // Auto scroll one card after few seconds
   useEffect(() => {
     if (isPaused || expandedIndex !== null) return;
 
@@ -130,7 +127,6 @@ const PartnerPurposeSection = () => {
     return () => clearInterval(interval);
   }, [isPaused, expandedIndex]);
 
-  // Update current index when user scrolls manually
   const handleScroll = () => {
     const el = scrollRef.current;
     if (!el) return;
@@ -139,13 +135,13 @@ const PartnerPurposeSection = () => {
     if (!step) return;
 
     const index = Math.round(el.scrollLeft / step);
+
     currentIndexRef.current = Math.max(
       0,
       Math.min(index, partnerCards.length - 1)
     );
   };
 
-  // Mouse wheel / trackpad horizontal scroll
   const handleWheel = (e) => {
     const el = scrollRef.current;
     if (!el) return;
@@ -156,7 +152,6 @@ const PartnerPurposeSection = () => {
     }
   };
 
-  // Drag scroll with mouse
   const handleMouseDown = (e) => {
     const el = scrollRef.current;
     if (!el) return;
@@ -197,8 +192,7 @@ const PartnerPurposeSection = () => {
         {/* Heading */}
         <div className="text-center mb-10 sm:mb-12">
           <h2 className="font-heading font-extrabold text-black leading-[1.1] text-[30px] sm:text-[40px] md:text-[50px]">
-            Partner with{" "}
-            <span className="text-[#1671DE]">our purpose</span>
+            Partner with <span className="text-[#1671DE]">our purpose</span>
           </h2>
 
           <p className="mt-4 text-black/60 text-[14px] sm:text-[16px] leading-[24px] text-center">
@@ -206,142 +200,125 @@ const PartnerPurposeSection = () => {
           </p>
         </div>
 
-        {/* Main Content */}
-        <div className="grid grid-cols-1 lg:grid-cols-[360px_minmax(0,1fr)] gap-8 lg:gap-10 items-center">
-          {/* Left Image */}
-          <div className="flex justify-center lg:justify-start">
-            <img
-              src={leftImage}
-              alt="Partner illustration"
-              className="w-full max-w-[330px] sm:max-w-[380px] lg:max-w-[360px] h-auto object-contain"
-            />
-          </div>
+        {/* Cards Only */}
+        <div className="relative w-full overflow-hidden">
+          <div
+            ref={scrollRef}
+            onScroll={handleScroll}
+            onWheel={handleWheel}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => {
+              setIsPaused(false);
+              stopDragging();
+            }}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={stopDragging}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
+            className={`flex w-full max-w-full gap-6 overflow-x-auto pb-4 scroll-smooth snap-x snap-mandatory select-none
+            [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]
+            ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
+          >
+            {partnerCards.map((card, index) => {
+              const isExpanded = expandedIndex === index;
 
-          {/* One-by-one Scroll Cards */}
-          <div className="relative w-full min-w-0 overflow-hidden">
-            <div
-              ref={scrollRef}
-              onScroll={handleScroll}
-              onWheel={handleWheel}
-              onMouseEnter={() => setIsPaused(true)}
-              onMouseLeave={() => {
-                setIsPaused(false);
-                stopDragging();
-              }}
-              onMouseDown={handleMouseDown}
-              onMouseMove={handleMouseMove}
-              onMouseUp={stopDragging}
-              onTouchStart={() => setIsPaused(true)}
-              onTouchEnd={() => setIsPaused(false)}
-              className={`flex w-full max-w-full gap-6 overflow-x-auto pb-4 pr-10 scroll-smooth snap-x snap-mandatory select-none
-              [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]
-              ${isDragging ? "cursor-grabbing" : "cursor-grab"}`}
-            >
-              {partnerCards.map((card, index) => {
-                const isExpanded = expandedIndex === index;
+              return (
+                <div
+                  key={index}
+                  data-partner-card
+                  className={`snap-start shrink-0 bg-white rounded-[18px] border-[2px] border-dashed ${card.borderColor} transition-all duration-500 ease-out
+                  w-[280px] sm:w-[330px] md:w-[360px] lg:w-[380px]
+                  ${
+                    isExpanded
+                      ? "min-h-[520px] p-4 sm:p-5"
+                      : "min-h-[245px] p-5 sm:p-6"
+                  }`}
+                >
+                  {!isExpanded && (
+                    <>
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        draggable="false"
+                        className="w-[118px] h-[88px] sm:w-[128px] sm:h-[92px] object-cover rounded-[8px] mb-5 pointer-events-none"
+                      />
 
-                return (
-                  <div
-                    key={index}
-                    data-partner-card
-                    className={`snap-start shrink-0 bg-white rounded-[18px] border-[2px] border-dashed ${card.borderColor} transition-all duration-500 ease-out
-                    w-[280px] sm:w-[330px] md:w-[360px]
-                    ${
-                      isExpanded
-                        ? "min-h-[520px] p-4 sm:p-5"
-                        : "min-h-[245px] p-5 sm:p-6"
-                    }`}
-                  >
-                    {/* Collapsed Card */}
-                    {!isExpanded && (
-                      <>
-                        <img
-                          src={card.image}
-                          alt={card.title}
-                          draggable="false"
-                          className="w-[118px] h-[88px] sm:w-[128px] sm:h-[92px] object-cover rounded-[8px] mb-5 pointer-events-none"
-                        />
+                      <h3
+                        className={`font-heading font-extrabold ${card.titleColor} text-[18px] sm:text-[20px] leading-tight`}
+                      >
+                        {card.title}
+                      </h3>
 
-                        <h3
-                          className={`font-heading font-extrabold ${card.titleColor} text-[18px] sm:text-[20px] leading-tight`}
+                      <p className="mt-1 text-black font-bold text-[12px] sm:text-[13px] leading-[18px] text-left">
+                        {card.subtitle}
+                      </p>
+
+                      <p className="mt-5 text-black/70 text-[13px] sm:text-[14px] leading-[21px] text-left">
+                        {card.description}{" "}
+                        <button
+                          type="button"
+                          onClick={() => handleReadMore(index)}
+                          className={`${card.linkColor} font-semibold underline underline-offset-2`}
                         >
-                          {card.title}
-                        </h3>
+                          Read More
+                        </button>
+                      </p>
+                    </>
+                  )}
 
-                        <p className="mt-1 text-black font-bold text-[12px] sm:text-[13px] leading-[18px] text-left">
-                          {card.subtitle}
-                        </p>
+                  {isExpanded && (
+                    <div className="flex h-full flex-col">
+                      <img
+                        src={card.image}
+                        alt={card.title}
+                        draggable="false"
+                        className="w-full h-[165px] sm:h-[175px] object-cover rounded-[10px] mb-5 pointer-events-none"
+                      />
 
-                        <p className="mt-5 text-black/70 text-[13px] sm:text-[14px] leading-[21px] text-left">
-                          {card.description}{" "}
-                          <button
-                            type="button"
-                            onClick={() => handleReadMore(index)}
-                            className={`${card.linkColor} font-semibold underline underline-offset-2`}
-                          >
-                            Read More
-                          </button>
-                        </p>
-                      </>
-                    )}
+                      <h3
+                        className={`font-heading font-extrabold ${card.titleColor} text-[20px] sm:text-[22px] leading-tight`}
+                      >
+                        {card.title}
+                      </h3>
 
-                    {/* Expanded Card */}
-                    {isExpanded && (
-                      <div className="flex h-full flex-col">
-                        <img
-                          src={card.image}
-                          alt={card.title}
-                          draggable="false"
-                          className="w-full h-[165px] sm:h-[175px] object-cover rounded-[10px] mb-5 pointer-events-none"
-                        />
+                      <p className="mt-1 text-black font-bold text-[12px] sm:text-[13px] leading-[18px] text-left">
+                        {card.subtitle}
+                      </p>
 
-                        <h3
-                          className={`font-heading font-extrabold ${card.titleColor} text-[20px] sm:text-[22px] leading-tight`}
+                      <p className="mt-5 text-black/70 text-[13px] sm:text-[14px] leading-[22px] text-left">
+                        {card.fullDescription}{" "}
+                        <button
+                          type="button"
+                          onClick={() => handleReadMore(index)}
+                          className={`${card.linkColor} font-semibold underline underline-offset-2`}
                         >
-                          {card.title}
-                        </h3>
+                          Read Less
+                        </button>
+                      </p>
 
-                        <p className="mt-1 text-black font-bold text-[12px] sm:text-[13px] leading-[18px] text-left">
-                          {card.subtitle}
+                      <div className="mt-auto pt-6 flex items-start gap-2">
+                        <span className={`mt-1 text-[14px] ${card.footerColor}`}>
+                          <FaPeopleArrows />
+                        </span>
+
+                        <p
+                          className={`${card.footerColor} text-[11px] sm:text-[12px] leading-[17px] font-semibold text-left`}
+                        >
+                          {card.footerText}
                         </p>
-
-                        <p className="mt-5 text-black/70 text-[13px] sm:text-[14px] leading-[22px] text-left">
-                          {card.fullDescription}{" "}
-                          <button
-                            type="button"
-                            onClick={() => handleReadMore(index)}
-                            className={`${card.linkColor} font-semibold underline underline-offset-2`}
-                          >
-                            Read Less
-                          </button>
-                        </p>
-
-                        <div className="mt-auto pt-6 flex items-start gap-2">
-                          <span
-                            className={`mt-1 text-[14px] ${card.footerColor}`}
-                          >
-                            <FaPeopleArrows />
-                          </span>
-
-                          <p
-                            className={`${card.footerColor} text-[11px] sm:text-[12px] leading-[17px] font-semibold text-left`}
-                          >
-                            {card.footerText}
-                          </p>
-                        </div>
                       </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
 
         {/* Bottom Strip */}
         <div className="mt-10 bg-white rounded-[18px] border-[2px] border-dashed border-[#2F80ED] px-4 sm:px-6 py-4">
           <div className="flex flex-col lg:flex-row items-start lg:items-center gap-5 lg:gap-8">
-            {/* Left Purpose Text */}
             <div className="flex items-center gap-4 min-w-fit">
               <div className="w-[54px] h-[54px] rounded-full bg-[#004A9F] text-white flex items-center justify-center text-[24px]">
                 <FaHandshake />
@@ -358,10 +335,8 @@ const PartnerPurposeSection = () => {
               </div>
             </div>
 
-            {/* Divider */}
             <div className="hidden lg:block h-[45px] w-px bg-black/10"></div>
 
-            {/* Bottom Icons */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 flex-1 w-full">
               {bottomItems.map((item, index) => (
                 <div

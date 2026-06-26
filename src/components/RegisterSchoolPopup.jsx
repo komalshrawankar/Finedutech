@@ -232,7 +232,7 @@ const RegisterSchoolPopup = ({ isOpen, onClose }) => {
           </h2>
 
           <p className="mx-auto mt-5 max-w-[410px] text-center text-[14px] leading-[22px] text-[#555]">
-            Your school has been successfully registered for Finedutech. Our
+            Your school has been successfully registered for Fin-edu Quest . Our
             team will contact you shortly with next steps to get your students
             started on their financial literacy journey.
           </p>

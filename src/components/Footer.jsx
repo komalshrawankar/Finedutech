@@ -1,55 +1,26 @@
+
 import React from "react";
 
-import cloudLogo from "../assets/images/cloud-logo.png";
-import sunIcon from "../assets/images/sun.png";
-import kidLeft from "../assets/images/pensil-boy.png";
-import kidRight from "../assets/images/book-boy.png";
 import waveLine from "../assets/images/wave-line.png";
 
 const quickLinks = [
-  "Home",
-  "About Us",
-  "Program",
-  "School",
-  "Blog",
-  "Contact Us",
+  { name: "Home", path: "/" },
+  { name: "About Us", path: "/about" },
+  { name: "Program", path: "/program" },
+  { name: "School", path: "/schools" },
+  { name: "Blog", path: "/blog" },
+  { name: "Contact Us", path: "/contact" },
 ];
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-white pt-5 ">
+    <footer className="w-full bg-white pt-5">
       <div className="relative mx-auto overflow-hidden rounded-t-[28px] sm:rounded-t-[34px] bg-[#2B2B2B] text-white py-8">
-        {/* Decorative Images */}
-        <img
-          src={sunIcon}
-          alt="Sun"
-          className="absolute top-4 left-1/2 z-0 w-[48px] -translate-x-1/2 sm:top-7 sm:w-[66px] lg:w-[78px]"
-        />
-
-        <img
-          src={cloudLogo}
-          alt="Company Logo"
-          className="absolute left-5 top-[58px] z-10 w-[82px] sm:left-10 sm:top-[72px] sm:w-[105px] lg:left-[88px] lg:top-[82px] lg:w-[125px]"
-        />
-
-        {/* Hide this on mobile because it overlaps bottom copyright */}
-        <img
-          src={kidLeft}
-          alt="Student"
-          className="hidden lg:block absolute bottom-[78px] left-[36%] z-10 w-[82px]"
-        />
-
-        <img
-          src={kidRight}
-          alt="Student with books"
-          className="absolute right-5 top-[58px] z-10 w-[58px] sm:right-8 sm:top-[78px] sm:w-[72px] lg:right-[70px] lg:top-[86px] lg:w-[86px]"
-        />
-
         {/* Main Footer Content */}
-        <div className="relative z-20 px-5 pb-8 pt-[145px] sm:px-10 sm:pt-[165px] lg:px-[90px] lg:pb-10 lg:pt-[160px]">
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.35fr_0.7fr_1fr] lg:gap-20">
+        <div className="relative z-20 px-5 py-8 sm:px-10 lg:px-[90px] lg:py-10">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr] lg:gap-24">
             {/* About */}
-            <div className="max-w-full sm:max-w-[320px]">
+            <div className="max-w-full sm:max-w-[520px]">
               <h3 className="footer-heading mb-4 text-white">
                 About Company.
               </h3>
@@ -61,11 +32,25 @@ const Footer = () => {
                 FINANCIAL LITERACY
               </p>
 
+              <div className="mt-5">
+                <h4 className="footer-heading mb-2 text-white">
+                  Email Address
+                </h4>
+
+                <a
+                  href="mailto:fineduquest@gmail.com"
+                  className="text-[14px] sm:text-[15px] font-light text-[#E5E5E5] transition hover:text-white"
+                >
+                  fineduquest@gmail.com
+                </a>
+              </div>
+
               {/* Social Icons */}
               <div className="mt-5 flex items-center gap-2">
                 <a
                   href="#"
                   className="flex h-[25px] w-[25px] items-center justify-center rounded-full bg-[#1877F2] text-[15px] font-bold"
+                  aria-label="Facebook"
                 >
                   f
                 </a>
@@ -73,6 +58,7 @@ const Footer = () => {
                 <a
                   href="#"
                   className="flex h-[25px] w-[25px] items-center justify-center rounded-full bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#FCAF45] text-[10px] font-bold"
+                  aria-label="Instagram"
                 >
                   ◎
                 </a>
@@ -80,6 +66,7 @@ const Footer = () => {
                 <a
                   href="#"
                   className="flex h-[25px] w-[25px] items-center justify-center rounded-full bg-[#0A66C2] text-[10px] font-bold"
+                  aria-label="LinkedIn"
                 >
                   in
                 </a>
@@ -87,6 +74,7 @@ const Footer = () => {
                 <a
                   href="#"
                   className="flex h-[25px] w-[25px] items-center justify-center rounded-full bg-black text-[10px] font-bold"
+                  aria-label="X"
                 >
                   X
                 </a>
@@ -103,55 +91,14 @@ const Footer = () => {
                 {quickLinks.map((link, index) => (
                   <li key={index}>
                     <a
-                      href="#"
+                      href={link.path}
                       className="text-[14px] sm:text-[15px] font-light text-[#E5E5E5] transition hover:text-white"
                     >
-                      {link}
+                      {link.name}
                     </a>
                   </li>
                 ))}
               </ul>
-            </div>
-
-            {/* Contact */}
-            <div className="max-w-full sm:max-w-[340px]">
-              <h3 className="footer-heading mb-5 text-white">
-                Contact
-              </h3>
-
-              <div className="space-y-4 text-[#E5E5E5]">
-                <div>
-                  <h4 className="footer-heading mb-2 text-white">
-                    Operational Address:
-                  </h4>
-
-                  <p className="!text-left !text-[14px] sm:!text-[15px] !font-light !leading-[1.55] !text-[#E5E5E5]">
-                    47, Kotwal Nagar, Khamla, Nagpur,
-                    <br />
-                    Maharashtra 440022, India
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="footer-heading mb-2 text-white">
-                    Email Address
-                  </h4>
-
-                  <p className="!text-left !text-[14px] sm:!text-[15px] !font-light !leading-[1.55] !text-[#E5E5E5]">
-                    fineduquest@gmail.com
-                  </p>
-                </div>
-
-                <div>
-                  <h4 className="footer-heading mb-2 text-white">
-                    Phone Number
-                  </h4>
-
-                  <p className="!text-left !text-[14px] sm:!text-[15px] !font-light !leading-[1.55] !text-[#E5E5E5]">
-                    +91-7666729015
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
 
@@ -194,3 +141,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

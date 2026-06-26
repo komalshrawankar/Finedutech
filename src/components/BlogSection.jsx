@@ -7,7 +7,7 @@ import blog3 from "../assets/images/blog3.png";
 const blogs = [
   {
     image: blog1,
-    date: "January 10, 2026",
+    
     title: "Why financial literacy matters in early education",
     desc: "Discover how introducing money concepts early can shape a child's financial future.",
     fullDesc:
@@ -49,8 +49,8 @@ const BlogSection = () => {
           </p>
 
           <h2 className="text-[26px] sm:text-[34px] lg:text-[40px] leading-tight font-extrabold text-black">
-            Insights &{" "}
-            <span className="text-[#0877F2]">Latest Updates</span>
+            Little Readers,{" "}
+            <span className="text-[#0877F2]">Big Money Lessons</span>
           </h2>
         </div>
 
@@ -77,9 +77,7 @@ const BlogSection = () => {
                 </div>
 
                 {/* Content */}
-                <p className="text-[#2276D2] text-[10px] sm:text-[14px] font-medium mb-2">
-                  {blog.date}
-                </p>
+               
 
                 <h3 className="text-[#111111] text-[20px] sm:text-[20px] lg:text-[18px] font-semibold leading-snug mb-2">
                   {blog.title}

@@ -115,9 +115,9 @@ const getCardStyle = (index) => {
             {/* Heading */}
             <div className="text-center mb-7 sm:mb-9">
               <h2 className="font-heading font-extrabold text-white leading-[1.25] text-[26px] sm:text-[36px] md:text-[44px] lg:text-[50px]">
-                What Schools and
+                What Parents
                 <br />
-                Educators{" "}
+                {" "}
                 <span className="text-[#67E8F2]">
                   Say About Us
                 </span>

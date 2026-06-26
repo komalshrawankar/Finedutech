@@ -28,7 +28,7 @@ const PurposeSection = () => {
           <span className="absolute inset-0 bg-black translate-y-[-100%] group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
 
           <span className="relative z-10 text-[14px] sm:text-[15px] font-medium transition-colors duration-300 group-hover:text-[#F5BC18]">
-            About Fin Edu Quest
+           About FLQ Knowledge Foundation
           </span>
         </a>
       </div>

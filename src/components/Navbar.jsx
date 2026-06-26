@@ -3,7 +3,7 @@ import { FaInstagram, FaFacebookF, FaYoutube } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { HiMenuAlt3 } from "react-icons/hi";
 
-import logo from "../assets/logo.png";
+import logo from "../assets/images/logo-new.png";
 import boyImg from "../assets/boy.png";
 import RegisterSchoolPopup from "./RegisterSchoolPopup";
 
@@ -30,40 +30,34 @@ const Navbar = () => {
 
   return (
     <>
-      {/* MAIN NAVBAR */}
       <header className="fixed top-0 left-0 w-full bg-white border-t-[4px] border-[#20343b] z-[9997]">
-        <nav className="h-[70px] sm:h-[70px] md:h-[105px] flex items-center justify-between px-6 sm:px-12 md:px-20 lg:px-24">
-          {/* Logo */}
+        <nav className="h-[95px] sm:h-[105px] md:h-[120px] lg:h-[140px] flex items-center justify-between px-6 sm:px-12 md:px-20 lg:px-24">
           <a href="/" className="inline-block">
             <img
               src={logo}
               alt="Logo"
-              className="w-[58px] sm:w-[68px] md:w-[78px] h-auto object-contain"
+              className="w-[125px] sm:w-[145px] md:w-[165px] lg:w-[185px] h-auto object-contain pt-6 me-5"
             />
           </a>
 
-          {/* Hamburger Button */}
           <button
             type="button"
             onClick={() => setIsOpen(true)}
-            className="w-[38px] h-[38px] sm:w-[42px] sm:h-[42px] rounded-full bg-[#F5BC18] flex items-center justify-center text-[#26383F] hover:scale-105 transition-transform duration-300"
+            className="w-[42px] h-[42px] sm:w-[46px] sm:h-[46px] rounded-full bg-[#F5BC18] flex items-center justify-center text-[#26383F] hover:scale-105 transition-transform duration-300"
             aria-label="Open menu"
           >
-            <HiMenuAlt3 className="text-[26px] sm:text-[29px]" />
+            <HiMenuAlt3 className="text-[28px] sm:text-[31px]" />
           </button>
         </nav>
       </header>
 
-      {/* SPACE FOR FIXED NAVBAR */}
-      <div className="h-[72px] sm:h-[80px] md:h-[86px]" />
+      <div className="h-[95px] sm:h-[105px] md:h-[120px] lg:h-[130px]" />
 
-      {/* MENU OVERLAY */}
       <div
         className={`fixed top-0 left-0 w-full h-screen bg-[#2D2D2D] border-t-[4px] border-[#20343b] z-[9998] overflow-hidden transform transition-transform duration-[850ms] ease-in-out ${
           isOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        {/* Close Button */}
         <button
           type="button"
           onClick={() => setIsOpen(false)}
@@ -74,7 +68,6 @@ const Navbar = () => {
         </button>
 
         <div className="relative w-full h-full flex items-center">
-          {/* LEFT MENU */}
           <div className="pl-8 sm:pl-14 md:pl-20 lg:pl-[78px] pt-8 sm:pt-0">
             <ul className="space-y-6 sm:space-y-7 md:space-y-8">
               {navLinks.map((link, index) => (
@@ -94,7 +87,6 @@ const Navbar = () => {
               ))}
             </ul>
 
-            {/* CTA Buttons */}
             <div className="flex flex-wrap items-center gap-5 mt-9 sm:mt-10">
               <button
                 type="button"
@@ -122,7 +114,6 @@ const Navbar = () => {
               </a>
             </div>
 
-            {/* Social Icons */}
             <div className="flex items-center gap-4 mt-10">
               <a
                 href="#"
@@ -150,7 +141,6 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* RIGHT IMAGE */}
           <img
             src={boyImg}
             alt="Student mascot"
