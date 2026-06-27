@@ -44,7 +44,7 @@ const Navbar = () => {
 
   return (
     <>
-      <header className="fixed top-0 left-0 w-full border-t-[4px] border-[#20343b] z-[9997]  transition-all duration-300">
+      <header className="fixed top-0 left-0 w-full bg-white border-t-[4px] border-[#20343b] z-[9997]  transition-all duration-300">
         <nav
           className={`flex items-center justify-between px-6 sm:px-12 md:px-20 lg:px-24 transition-all duration-300 ${
             scrolled
