@@ -1,7 +1,7 @@
-
 import React from "react";
 
 import waveLine from "../assets/images/wave-line.png";
+import mascotImg from "../assets/images/book-mascot.png";
 
 const quickLinks = [
   { name: "Home", path: "/" },
@@ -16,12 +16,13 @@ const Footer = () => {
   return (
     <footer className="w-full bg-white pt-5">
       <div className="relative mx-auto overflow-hidden rounded-t-[28px] sm:rounded-t-[34px] bg-[#2B2B2B] text-white py-8">
-        {/* Main Footer Content */}
         <div className="relative z-20 px-5 py-8 sm:px-10 lg:px-[90px] lg:py-10">
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_0.8fr] lg:gap-24">
+          
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-[1.35fr_0.6fr_0.55fr] lg:gap-14 items-start">
+            
             {/* About */}
             <div className="max-w-full sm:max-w-[520px]">
-              <h2 className=" footer-heading mb-4 text-white text-[25px]">
+              <h2 className="footer-heading mb-4 text-white text-[25px]">
                 About Company.
               </h2>
 
@@ -33,19 +34,16 @@ const Footer = () => {
               </p>
 
               <div className="mt-5">
-                <h4 className="normal mb-2 text-white">
-                  Email Address
-                </h4>
+                <h4 className="normal mb-2 text-white">Email Address</h4>
 
                 <a
                   href="mailto:fineduquest@gmail.com"
-                  className=" normal text-[14px] sm:text-[15px] font-light text-[#E5E5E5] transition hover:text-white"
+                  className="normal text-[14px] sm:text-[15px] font-light text-[#E5E5E5] transition hover:text-white"
                 >
                   fineduquest@gmail.com
                 </a>
               </div>
 
-              {/* Social Icons */}
               <div className="mt-5 flex items-center gap-2">
                 <a
                   href="#"
@@ -83,7 +81,7 @@ const Footer = () => {
 
             {/* Quick Links */}
             <div>
-              <h3 className="  footer-heading mb-5 text-white  text-[25px]">
+              <h3 className="footer-heading mb-5 text-white text-[25px]">
                 Quick Links
               </h3>
 
@@ -92,13 +90,22 @@ const Footer = () => {
                   <li key={index}>
                     <a
                       href={link.path}
-                      className=" normal text-[14px] sm:text-[15px] font-light text-[#E5E5E5] transition hover:text-white"
+                      className="normal text-[14px] sm:text-[15px] font-light text-[#E5E5E5] transition hover:text-white"
                     >
                       {link.name}
                     </a>
                   </li>
                 ))}
               </ul>
+            </div>
+
+            {/* Mascot Image */}
+            <div className="hidden lg:flex justify-center items-end">
+              <img
+                src={mascotImg}
+                alt="Student reading book"
+                className="w-[190px] xl:w-[230px] object-contain"
+              />
             </div>
           </div>
 
@@ -141,4 +148,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

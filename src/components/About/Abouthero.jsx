@@ -1,13 +1,13 @@
 import React from "react";
-import heroBg from "../../assets/images/backgroung-bg.png";
+import heroBg from "../../assets/images/background-image.png";
 
 const Abouthero = () => {
   return (
     <section className="w-full bg-white overflow-hidden">
-      <div className="relative w-full min-h-[calc(100vh-120px)] flex items-center justify-center px-4 sm:px-6 lg:px-10">
+      <div className="relative w-full min-h-[calc(100vh-160px)] flex items-center justify-center px-4 sm:px-6 lg:px-10">
         
         {/* HERO WRAPPER */}
-        <div className="relative w-full max-w-[1050px] aspect-[16/8] flex items-center justify-center">
+        <div className="relative w-full max-w-[800px] aspect-[16/8] flex items-center justify-center">
           
           {/* Background Image */}
           <img
