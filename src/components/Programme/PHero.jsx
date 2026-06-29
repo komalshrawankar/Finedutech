@@ -35,6 +35,7 @@ const PHero = ({
   title = defaultTitle,
   description = "Fin-Edu Quest is a pioneering initiative designed to equip students with essential financial life skills through an engaging and age-appropriate Olympiad experience. Aligned with NEP 2020, the Olympiad helps students develop practical knowledge of money management, responsible decision-making, entrepreneurship, consumer awareness, and financial well-being.",
   highlights = defaultHighlights,
+ 
   image = defaultHeroImage,
   imageAlt = "Student learning financial literacy with books, chart, and savings",
   cardTitle = "Empowering Future-Ready Learners",
@@ -76,6 +77,7 @@ const PHero = ({
             </ul>
           ) : null}
         </div>
+        
 
         <div className="flex flex-col items-center lg:items-end">
           <img
@@ -98,6 +100,7 @@ const PHero = ({
               ) : null}
             </div>
           )}
+         
         </div>
       </div>
     </section>

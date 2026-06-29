@@ -6,7 +6,6 @@ import { HiMenuAlt3 } from "react-icons/hi";
 
 import logo from "../assets/images/logo-new.png";
 import boyImg from "../assets/images/Navbar-new.png";
-import sideMenuFrame from "../assets/images/side-menu-frame.png";
 import RegisterSchoolPopup from "./RegisterSchoolPopup";
 
 const navLinks = [
@@ -16,6 +15,14 @@ const navLinks = [
   { name: "Gallery", path: "/gallery" },
   { name: "Blog", path: "/blog" },
   { name: "Contact Us", path: "/contact" },
+];
+
+const sideMenuWords = [
+  "Business & Impact Initiatives",
+  "Financial-Literacy Publications",
+  "Fin-Edu Quest",
+  "Money-Mastery Program",
+  "Awareness & Outreach",
 ];
 
 const Navbar = () => {
@@ -57,7 +64,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Logo"
-              className={`h-auto object-contain transition-all duration-300 ${
+              className={`h-auto mt-8 object-contain transition-all duration-300 ${
                 scrolled
                   ? "w-[95px] sm:w-[115px] md:w-[135px] lg:w-[145px]"
                   : "w-[125px] sm:w-[150px] md:w-[170px] lg:w-[185px]"
@@ -101,6 +108,29 @@ const Navbar = () => {
           isOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
+        <style>
+          {`
+            @keyframes verticalMenuMarquee {
+              from {
+                transform: translateY(-50%);
+              }
+              to {
+                transform: translateY(0);
+              }
+            }
+
+            .side-menu-marquee-track {
+              animation: verticalMenuMarquee 18s linear infinite;
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+              .side-menu-marquee-track {
+                animation: none;
+              }
+            }
+          `}
+        </style>
+
         {/* Close Button */}
         <button
           type="button"
@@ -191,13 +221,25 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Vertical Image Behind Boy */}
-          <img
-            src={sideMenuFrame}
-            alt=""
+          {/* Vertical Text Marquee Behind Boy */}
+          <div
             aria-hidden="true"
-            className="pointer-events-none absolute right-[42px] top-1/2 z-10 hidden h-[92vh] -translate-y-1/2 select-none opacity-75 md:block lg:right-[66px] xl:right-[82px] 2xl:right-[98px]"
-          />
+            className="pointer-events-none absolute right-[30px] top-1/2 z-10 hidden h-[102vh] w-[82px] -translate-y-1/2 overflow-hidden rounded-[10px] bg-black/15 select-none md:block lg:right-[66px] xl:right-[82px] 2xl:right-[180px]"
+          >
+            <div className="side-menu-marquee-track flex min-h-[200%] flex-col justify-around py-6">
+              {[...sideMenuWords, ...sideMenuWords].map((word, index) => (
+                <div
+                  key={`${word}-${index}`}
+                  className="flex min-h-[220px] items-center justify-center gap-5"
+                >
+                  
+                  <span className="normal [writing-mode:vertical-rl] rotate-180 whitespace-nowrap text-[24px] font-semibold tracking-[0.03em] text-white/28">
+                    {word}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
 
           {/* Mascot Image */}
           <img
