@@ -71,12 +71,9 @@ const HeroSection = () => {
               Right from <span className="font-bold">Class 1</span>
             </h2>
 
-            <Link
-              to="/fin-edu-quest"
-              className="discover-btn mt-3 sm:mt-5 animate-button-bounce"
-            >
-              <span>Discover what we do</span>
-            </Link>
+            <button className="discover-btn mt-4 sm:mt-5 ">
+                <span><Link to="/fin-edu-quest" >Discover what we do</Link></span>
+              </button>
           </div>
         </div>
       </div>
