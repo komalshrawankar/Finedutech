@@ -2,7 +2,11 @@
 export default {
   content: ["./src/**/*.{html,js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+       fontFamily: {
+        heading: ['"Baloo 2"', "system-ui", "sans-serif"],
+      },
+    },
   },
   plugins: [],
 }
