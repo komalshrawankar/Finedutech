@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 import img1 from "../assets/images/init1.png";
 import img2 from "../assets/images/init2.png";
@@ -16,24 +17,28 @@ const initiatives = [
     hoverImage: hoverImg1,
     title: "Fin-Edu Quest",
     description: "A Financial Literacy Olympiad",
+    path: "/fin-edu-quest",
   },
   {
     image: img2,
     hoverImage: hoverImg2,
     title: "Money-Mastery Program",
     description: "Experiential Learning Activity Kit",
+    path: "/money-mastery",
   },
   {
     image: img3,
     hoverImage: hoverImg3,
     title: "Awareness & Impact Initiatives",
     description: "Workshops, Campaigns & Community Outreach",
+    path: "/program",
   },
   {
     image: img4,
     hoverImage: hoverImg4,
     title: "Financial-Literacy Publications",
     description: "Professionally Designed NEP-Aligned Books",
+    path: "/program",
   },
 ];
 
@@ -112,14 +117,14 @@ const InitiativesSection = () => {
                       {item.description}
                     </p>
 
-                    <a
-                      href="#"
+                    <Link
+                      to={item.path}
                       className="group/link relative inline-flex mt-3 text-[11px] sm:text-[12px] font-medium text-black overflow-hidden transition-colors duration-500"
                     >
                       <span>Learn More</span>
                       <span className="absolute left-0 bottom-0 w-full h-[2px] bg-[#F5BC18] group-hover:bg-white transition-colors duration-500"></span>
                       <span className="absolute left-0 bottom-0 w-full h-[2px] bg-[#67E8F2] translate-x-[-100%] group-hover/link:translate-x-0 transition-transform duration-300"></span>
-                    </a>
+                    </Link>
                   </div>
 
                   <img

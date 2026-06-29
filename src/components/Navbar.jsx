@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FaInstagram, FaFacebookF, FaYoutube } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { HiMenuAlt3 } from "react-icons/hi";
@@ -12,9 +12,8 @@ const navLinks = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
   { name: "Program", path: "/program" },
-  { name: "Gallery", path: "/gallery" },
-  { name: "Blog", path: "/blog" },
-  { name: "Contact Us", path: "/contact" },
+  { name: "Fin-Edu Quest", path: "/fin-edu-quest" },
+  { name: "Money Mastery", path: "/money-mastery" },
 ];
 
 const Navbar = () => {
@@ -108,19 +107,22 @@ const Navbar = () => {
         <div className="relative w-full h-full flex items-center">
           <div className="pl-8 sm:pl-14 md:pl-20 lg:pl-[78px] pt-8 sm:pt-0">
             <ul className="space-y-6 sm:space-y-7 md:space-y-8">
-              {navLinks.map((link, index) => (
+              {navLinks.map((link) => (
                 <li key={link.name}>
-                  <Link
+                  <NavLink
                     to={link.path}
                     onClick={() => setIsOpen(false)}
-                    className={`block font-heading font-extrabold text-[34px] sm:text-[40px] md:text-[42px] lg:text-[44px] leading-none tracking-[-1px] transition-colors duration-300 ${
-                      index === 0
+                    end={link.path === "/"}
+                    className={({ isActive }) =>
+                      `block font-heading font-extrabold text-[34px] sm:text-[40px] md:text-[42px] lg:text-[44px] leading-none tracking-[-1px] transition-colors duration-300 ${
+                        isActive
                         ? "text-[#F5BC18]"
                         : "text-white hover:text-[#F5BC18]"
-                    }`}
+                      }`
+                    }
                   >
                     {link.name}
-                  </Link>
+                  </NavLink>
                 </li>
               ))}
             </ul>

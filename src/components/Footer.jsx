@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import waveLine from "../assets/images/wave-line.png";
 import mascotImg from "../assets/images/book-mascot.png";
@@ -7,9 +8,8 @@ const quickLinks = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
   { name: "Program", path: "/program" },
-  { name: "School", path: "/schools" },
-  { name: "Blog", path: "/blog" },
-  { name: "Contact Us", path: "/contact" },
+  { name: "Fin-Edu Quest", path: "/fin-edu-quest" },
+  { name: "Money Mastery", path: "/money-mastery" },
 ];
 
 const Footer = () => {
@@ -88,12 +88,12 @@ const Footer = () => {
               <ul className="space-y-3">
                 {quickLinks.map((link, index) => (
                   <li key={index}>
-                    <a
-                      href={link.path}
+                    <Link
+                      to={link.path}
                       className="normal text-[14px] sm:text-[15px] font-light text-[#E5E5E5] transition hover:text-white"
                     >
                       {link.name}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

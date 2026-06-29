@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const PurposeSection = () => {
   return (
@@ -21,8 +22,8 @@ const PurposeSection = () => {
         </p>
 
         {/* Button */}
-        <a
-          href="/about"
+        <Link
+          to="/about"
           className="group relative inline-flex items-center justify-center mt-5 h-[38px] px-6 rounded-full overflow-hidden bg-[#F5BC18] text-black shadow-[0_3px_0_#111] transition-all duration-300 hover:translate-y-[2px] hover:shadow-[0_1px_0_#111]"
         >
           <span className="absolute inset-0 bg-black translate-y-[-100%] group-hover:translate-y-0 transition-transform duration-300 ease-out"></span>
@@ -30,7 +31,7 @@ const PurposeSection = () => {
           <span className="relative z-10 text-[14px] sm:text-[15px] font-medium transition-colors duration-300 group-hover:text-[#F5BC18]">
            About FLQ Knowledge Foundation
           </span>
-        </a>
+        </Link>
       </div>
     </section>
   );
