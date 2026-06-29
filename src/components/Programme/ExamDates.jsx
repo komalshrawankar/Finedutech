@@ -1,6 +1,7 @@
 import React from "react";
 import { FaCalendarAlt, FaInfoCircle, FaSchool } from "react-icons/fa";
 import mascotBoy from "../../assets/images/boy.png";
+import mobileMascot from "../../assets/images/down.png";
 
 const examDates = [
   {
@@ -90,9 +91,15 @@ const ExamDates = () => {
       <div className="mx-auto flex max-w-[1120px] flex-col items-center justify-center gap-6 lg:flex-row lg:items-end lg:gap-0">
         <div className="relative z-20 flex w-full justify-center lg:w-[230px] lg:justify-end">
           <img
+            src={mobileMascot}
+            alt="Fin-Edu Quest mascot pointing towards exam dates"
+            className="exam-mascot w-[150px] object-contain sm:w-[185px] md:hidden"
+          />
+
+          <img
             src={mascotBoy}
             alt="Fin-Edu Quest mascot pointing towards exam dates"
-            className="exam-mascot w-[150px] object-contain sm:w-[185px] lg:-mr-7 lg:w-[215px]"
+            className="exam-mascot hidden w-[150px] object-contain sm:w-[185px] md:block lg:-mr-7 lg:w-[215px]"
           />
         </div>
 

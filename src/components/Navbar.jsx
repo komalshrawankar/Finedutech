@@ -64,7 +64,7 @@ const Navbar = () => {
             <img
               src={logo}
               alt="Logo"
-              className={`h-auto mt-8 object-contain transition-all duration-300 ${
+              className={`h-auto p-5 object-contain transition-all duration-300 ${
                 scrolled
                   ? "w-[95px] sm:w-[115px] md:w-[135px] lg:w-[145px]"
                   : "w-[125px] sm:w-[150px] md:w-[170px] lg:w-[185px]"
