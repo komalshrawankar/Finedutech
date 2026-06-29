@@ -66,7 +66,7 @@ const ProgramHero = () => {
                 </h1>
     
                 <p className="mt-2 max-w-[220px] text-[10px] leading-[1.25] text-black min-[480px]:max-w-[280px] min-[480px]:text-[12px] sm:mt-4 sm:max-w-[430px] sm:text-[16px] md:text-[18px] lg:max-w-[480px] animate-fade-up-delay">
-                  Explore programs designed to teach financial literacy, money management, and life skills to students of all grade levels.
+                  Explore programs designed to teach financial<br /> literacy, money management, and life skills<br /> to students of all grade levels.
                 </p>
     
                 {/* <button className="discover-btn mt-3 sm:mt-5 animate-button-bounce">
