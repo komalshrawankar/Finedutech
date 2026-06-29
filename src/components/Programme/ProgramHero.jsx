@@ -50,7 +50,7 @@ const ProgramHero = () => {
               />
     
               {/* Text Content */}
-              <div className="absolute left-[8%] top-[40%] z-20 max-w-[260px] min-[480px]:left-[9%] min-[480px]:top-[21%] min-[480px]:max-w-[330px] sm:left-[12%] sm:top-[19%] sm:max-w-[430px] md:left-[10%] md:top-[18%] md:max-w-[520px] lg:left-[10%] lg:top-[20%] lg:max-w-[640px]">
+              <div className="absolute left-[8%] top-[20%] z-20 max-w-[260px] min-[480px]:left-[9%] min-[480px]:top-[21%] min-[480px]:max-w-[330px] sm:left-[12%] sm:top-[19%] sm:max-w-[430px] md:left-[10%] md:top-[18%] md:max-w-[520px] lg:left-[10%] lg:top-[20%] lg:max-w-[640px]">
                 <h1 className="hero-title-font">
                   <span className="block hero-left-animate hero-delay-1 text-black text-[20px] min-[380px]:text-[34px] min-[480px]:text-[42px] sm:text-[48px] md:text-[56px] lg:text-[64px]">
                     Building
