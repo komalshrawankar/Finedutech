@@ -52,21 +52,21 @@ const ProgramHero = () => {
               {/* Text Content */}
               <div className="absolute left-[8%] top-[20%] z-20 max-w-[260px] min-[480px]:left-[9%] min-[480px]:top-[21%] min-[480px]:max-w-[330px] sm:left-[12%] sm:top-[19%] sm:max-w-[430px] md:left-[10%] md:top-[18%] md:max-w-[520px] lg:left-[10%] lg:top-[20%] lg:max-w-[640px]">
                 <h1 className="hero-title-font">
-                  <span className="block hero-left-animate hero-delay-1 text-black text-[20px] min-[380px]:text-[34px] min-[480px]:text-[42px] sm:text-[48px] md:text-[56px] lg:text-[64px]">
+                  <span className="block hero-left-animate hero-delay-1 text-black text-[16px] min-[380px]:text-[34px] min-[480px]:text-[42px] sm:text-[48px] md:text-[56px] lg:text-[64px]">
                     Building
                   </span>
     
-                  <span className="block hero-left-animate hero-delay-2 text-black text-[20px] min-[380px]:text-[34px] min-[480px]:text-[42px] sm:text-[48px] md:text-[56px] lg:text-[64px]">
+                  <span className="block hero-left-animate hero-delay-2 text-black text-[16px] min-[380px]:text-[34px] min-[480px]:text-[42px] sm:text-[48px] md:text-[56px] lg:text-[64px]">
                     Financially
                   </span>
     
-                  <span className="block hero-right-animate hero-delay-3 text-[#007BFF] text-[20px] min-[380px]:text-[34px] min-[480px]:text-[42px] sm:text-[48px] md:text-[56px] lg:text-[60px]">
+                  <span className="block hero-right-animate hero-delay-3 text-[#007BFF] text-[16px] min-[380px]:text-[34px] min-[480px]:text-[42px] sm:text-[48px] md:text-[56px] lg:text-[60px]">
                     Smart Students
                   </span>
                 </h1>
     
                 <p className="mt-2 max-w-[220px] text-[10px] leading-[1.25] text-black min-[480px]:max-w-[280px] min-[480px]:text-[12px] sm:mt-4 sm:max-w-[430px] sm:text-[16px] md:text-[18px] lg:max-w-[480px] animate-fade-up-delay">
-                  Explore programs designed to teach financial<br /> literacy, money management, and life skills<br /> to students of all grade levels.
+                  Explore programs designed to teach <br /> financial literacy, money management,<br /> and life skills to students of all grade levels.
                 </p>
     
                 {/* <button className="discover-btn mt-3 sm:mt-5 animate-button-bounce">
