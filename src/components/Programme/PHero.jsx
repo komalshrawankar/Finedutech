@@ -25,8 +25,8 @@ const defaultTitle = (
     India's First Financial
     <br  />
      Literacy Olympiad for
-    <br className="hidden sm:block" />
-    <span className="text-[#1671DE]"> <br />Classes 1-12</span>
+    <br />
+    <span className="text-[#1671DE]"> Classes 1-12</span>
   </>
 );
 
