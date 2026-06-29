@@ -92,9 +92,9 @@ const RegisterSchoolPopup = ({ isOpen, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[10000] bg-black/85 flex items-center justify-center px-4 py-6">
+    <div className="fixed inset-0 z-[10000] flex items-center justify-center overflow-y-auto bg-black/85 px-4 py-6">
       {!isSuccess ? (
-        <div className="relative w-full max-w-[560px] rounded-[10px] bg-white px-6 sm:px-10 py-8 sm:py-10">
+        <div className="relative max-h-[calc(100dvh-48px)] w-full max-w-[560px] overflow-y-auto rounded-[10px] bg-white px-5 py-7 sm:px-10 sm:py-10">
           <button
             type="button"
             onClick={handleClose}
@@ -105,9 +105,9 @@ const RegisterSchoolPopup = ({ isOpen, onClose }) => {
           </button>
 
           <div className="mb-6 max-w-[640px]">
-            <h2 className="font-heading text-[26px] sm:text-[30px] leading-none text-black">
+            <h2 className="font-heading text-[25px] leading-tight text-black sm:text-[30px] sm:leading-none">
               Register Your School for{" "}
-              <br /><span className="text-[#007BFF]">Fin-Edu Quest</span>
+              <br className="hidden sm:block" /><span className="text-[#007BFF]">Fin-Edu Quest</span>
             </h2>
 
             <p className="mt-3 text-left text-[13px] sm:text-[14px] leading-[20px] text-[#555]">
@@ -186,11 +186,11 @@ const RegisterSchoolPopup = ({ isOpen, onClose }) => {
               </div>
             </div>
 
-            <div className="mt-6 border-t border-[#d7dce2] pt-6 flex justify-end">
+            <div className="mt-6 flex justify-stretch border-t border-[#d7dce2] pt-6 sm:justify-end">
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="rounded-full bg-[#FFC928] px-6 py-3 text-[13px] font-medium text-black shadow-[0_3px_0_#111] transition hover:translate-y-[2px] hover:shadow-[0_1px_0_#111] disabled:cursor-not-allowed disabled:opacity-70"
+                className="w-full rounded-full bg-[#FFC928] px-6 py-3 text-[13px] font-medium text-black shadow-[0_3px_0_#111] transition hover:translate-y-[2px] hover:shadow-[0_1px_0_#111] disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
               >
                 {isSubmitting ? "Submitting..." : "Request a callback"}
               </button>

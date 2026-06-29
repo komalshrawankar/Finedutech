@@ -23,9 +23,9 @@ const defaultHighlights = [
 const defaultTitle = (
   <>
     India's First Financial
-    <br />
+    <br className="hidden sm:block" />
     Literacy Olympiad for
-    <br />
+    <br className="hidden sm:block" />
     <span className="text-[#1671DE]">Classes 1-12</span>
   </>
 );
@@ -56,7 +56,7 @@ const PHero = ({
             </p>
           ) : null}
 
-          <h1 className="mt-5 font-heading text-[38px] leading-[1.2] text-black min-[420px]:text-[44px] sm:text-[54px] md:text-[62px] lg:mt-6 lg:text-[54px] xl:text-[58px]">
+          <h1 className="mt-5 font-heading text-[36px] leading-[1.16] text-black min-[420px]:text-[42px] sm:text-[54px] sm:leading-[1.2] md:text-[62px] lg:mt-6 lg:text-[54px] xl:text-[58px]">
             {title}
           </h1>
 

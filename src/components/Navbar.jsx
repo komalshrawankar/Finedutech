@@ -104,7 +104,7 @@ const Navbar = () => {
 
       {/* Fullscreen Menu */}
       <div
-        className={`fixed left-0 top-0 z-[9998] h-screen w-full overflow-hidden border-t-[4px] border-[#20343B] bg-[#2D2D2D] transition-transform duration-[850ms] ease-[cubic-bezier(0.76,0,0.24,1)] ${
+        className={`fixed left-0 top-0 z-[9998] h-[100dvh] w-full overflow-y-auto overflow-x-hidden border-t-[4px] border-[#20343B] bg-[#2D2D2D] transition-transform duration-[850ms] ease-[cubic-bezier(0.76,0,0.24,1)] md:h-screen md:overflow-hidden ${
           isOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -141,10 +141,10 @@ const Navbar = () => {
           <IoClose className="text-[38px]" />
         </button>
 
-        <div className="relative flex h-full w-full items-center">
+        <div className="relative flex min-h-full w-full items-center py-24 md:h-full md:py-0">
           {/* Left Menu Content */}
-          <div className="relative z-30 pl-8 pt-8 sm:pl-14 md:pl-20 lg:pl-[78px]">
-            <ul className="space-y-6 sm:space-y-7 md:space-y-8">
+          <div className="relative z-30 w-full px-6 sm:px-10 md:w-auto md:px-0 md:pl-20 lg:pl-[78px]">
+            <ul className="space-y-4 sm:space-y-6 md:space-y-8">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <NavLink
@@ -152,7 +152,7 @@ const Navbar = () => {
                     end={link.path === "/"}
                     onClick={() => setIsOpen(false)}
                     className={({ isActive }) =>
-                      `block font-heading text-[38px] font-black leading-[0.95] tracking-[-1.5px] transition-all duration-300 sm:text-[46px] md:text-[50px] lg:text-[54px] xl:text-[58px] ${
+                      `block break-words font-heading text-[34px] font-black leading-[0.98] tracking-[0] transition-all duration-300 min-[380px]:text-[38px] sm:text-[46px] md:text-[50px] md:leading-[0.95] md:tracking-[-1.5px] lg:text-[54px] xl:text-[58px] ${
                         isActive
                           ? "text-[#F5BC18]"
                           : "text-white hover:translate-x-2 hover:text-[#F5BC18]"
@@ -166,7 +166,7 @@ const Navbar = () => {
             </ul>
 
             {/* Buttons */}
-            <div className="mt-9 flex flex-wrap items-center gap-5 sm:mt-10">
+            <div className="mt-8 flex flex-wrap items-center gap-4 sm:mt-10 sm:gap-5">
               <button
                 type="button"
                 onClick={() => {

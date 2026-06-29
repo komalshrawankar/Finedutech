@@ -85,11 +85,11 @@ const MoneyMastery = () => {
               Money Mastery Program
             </p>
 
-            <h1 className="mt-5 font-heading text-[38px] leading-[1.2] text-black min-[420px]:text-[44px] sm:text-[52px] md:text-[58px] lg:text-[52px] xl:text-[56px]">
+            <h1 className="mt-5 font-heading text-[36px] leading-[1.16] text-black min-[420px]:text-[42px] sm:text-[52px] sm:leading-[1.2] md:text-[58px] lg:text-[52px] xl:text-[56px]">
               Activity-Based Financial
-              <br />
+              <br className="hidden sm:block" />
               Literacy Program for
-              <br />
+              <br className="hidden sm:block" />
               <span className="text-[#1671DE]">Classes 1-5</span>
             </h1>
 

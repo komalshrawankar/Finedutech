@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import heroBg from "../assets/images/hero-bg.png";
 import arrowImg from "../assets/images/heo-arrow.png";
@@ -70,9 +71,12 @@ const HeroSection = () => {
               Right from <span className="font-bold">Class 1</span>
             </h2>
 
-            <button className="discover-btn mt-3 sm:mt-5 animate-button-bounce">
+            <Link
+              to="/fin-edu-quest"
+              className="discover-btn mt-3 sm:mt-5 animate-button-bounce"
+            >
               <span>Discover what we do</span>
-            </button>
+            </Link>
           </div>
         </div>
       </div>

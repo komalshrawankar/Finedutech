@@ -29,7 +29,7 @@ const examDates = [
 
 const ExamDates = () => {
   return (
-    <section className="w-full bg-white px-4 py-12 sm:px-6 lg:px-10">
+    <section className="w-full bg-white px-4 py-10 sm:px-6 sm:py-12 lg:px-10">
       <style>
         {`
           @keyframes examFadeUp {
@@ -93,7 +93,7 @@ const ExamDates = () => {
           <img
             src={mobileMascot}
             alt="Fin-Edu Quest mascot pointing towards exam dates"
-            className="exam-mascot w-[150px] object-contain sm:w-[185px] md:hidden"
+            className="exam-mascot w-[132px] object-contain min-[380px]:w-[150px] sm:w-[185px] md:hidden"
           />
 
           <img
@@ -103,13 +103,13 @@ const ExamDates = () => {
           />
         </div>
 
-        <div className="exam-date-card relative z-10 w-full max-w-[860px] overflow-hidden rounded-[26px] border border-[#1671DE]/20 bg-white px-4 py-5 text-left shadow-[0_22px_60px_rgba(22,113,222,0.16)] sm:px-7 sm:py-7 lg:px-8">
+        <div className="exam-date-card relative z-10 w-full max-w-[860px] overflow-hidden rounded-[22px] border border-[#1671DE]/20 bg-white px-4 py-5 text-left shadow-[0_22px_60px_rgba(22,113,222,0.16)] sm:rounded-[26px] sm:px-7 sm:py-7 lg:px-8">
           <div className="pointer-events-none absolute -right-16 -top-16 h-52 w-52 rounded-full bg-[#EAF4FF]" />
           <div className="pointer-events-none absolute -bottom-20 -left-20 h-52 w-52 rounded-full bg-[#FFF8E2]" />
           <div className="pointer-events-none absolute right-8 top-8 h-24 w-24 rounded-full border border-[#1671DE]/10" />
 
           <div className="relative z-10">
-            <div className="flex items-center gap-3">
+            <div className="flex items-start gap-3 sm:items-center">
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#EAF4FF] text-[#1671DE]">
                 <FaCalendarAlt className="text-[18px]" />
               </span>
@@ -119,7 +119,7 @@ const ExamDates = () => {
                   Exam Schedule
                 </p>
 
-                <h3 className="normal mt-1 text-[21px] font-extrabold leading-tight text-[#0B3B69] sm:text-[25px] lg:text-[28px]">
+                <h3 className="normal mt-1 text-[19px] font-extrabold leading-tight text-[#0B3B69] min-[380px]:text-[21px] sm:text-[25px] lg:text-[28px]">
                   Financial Literacy Olympiad Exam Date for Academic Year
                   2026-2027
                 </h3>
@@ -148,7 +148,7 @@ const ExamDates = () => {
                   </div>
 
                   <div className="min-w-0">
-                    <h4 className="normal text-[21px] font-extrabold uppercase leading-tight text-black sm:text-[27px] md:text-[22px] lg:text-[24px]">
+                    <h4 className="normal text-[19px] font-extrabold uppercase leading-tight text-black min-[380px]:text-[21px] sm:text-[27px] md:text-[22px] lg:text-[24px]">
                       {item.month}
                     </h4>
 

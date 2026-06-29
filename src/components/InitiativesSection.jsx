@@ -69,7 +69,7 @@ const InitiativesSection = () => {
   }, []);
 
   return (
-    <section ref={sectionRef} className="w-full bg-white py-12 sm:py-16">
+    <section ref={sectionRef} className="w-full bg-white px-4 py-12 sm:px-5 sm:py-16 lg:px-0">
       <div className="mx-auto">
         <div className="bg-[#2D2D2D] rounded-[32px] sm:rounded-[40px] px-5 sm:px-8 md:px-12 lg:px-16 py-12 sm:py-14 md:py-16 overflow-hidden">
           
@@ -100,12 +100,12 @@ const InitiativesSection = () => {
                   animationDelay: `${index * 0.12}s`,
                 }}
               >
-                <div className="group relative overflow-hidden bg-white hover:bg-[#F4BF23] rounded-[20px] sm:rounded-[20px] p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 w-full max-w-[520px] min-h-[250px] transition-all duration-500 ease-out">
+                <div className="group relative flex min-h-[230px] w-full max-w-[520px] flex-col items-start gap-4 overflow-hidden rounded-[20px] bg-white p-5 transition-all duration-500 ease-out hover:bg-[#F4BF23] sm:min-h-[250px] sm:flex-row sm:items-center sm:gap-6 sm:p-6">
                   
                   <img
                     src={item.image}
                     alt={item.title}
-                    className="relative z-10 w-full h-[180px] sm:w-[170px] sm:h-[185px] object-contain flex-shrink-0 transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+                    className="relative z-10 h-[150px] w-full flex-shrink-0 object-contain transition-transform duration-500 ease-out group-hover:scale-[1.03] sm:h-[185px] sm:w-[170px]"
                   />
 
                   <div className="relative z-10 w-full min-w-0 sm:flex-1">
