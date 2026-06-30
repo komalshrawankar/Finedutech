@@ -14,7 +14,7 @@ const navLinks = [
   { name: "Program", path: "/program" },
   { name: "Gallery", path: "/gallery" },
   { name: "Blog", path: "/blog" },
-  { name: "Contact Us", path: "/contact" },
+  
 ];
 
 const sideMenuWords = [
@@ -224,7 +224,7 @@ const Navbar = () => {
           {/* Vertical Text Marquee Behind Boy */}
           <div
             aria-hidden="true"
-            className="pointer-events-none absolute right-[30px] top-1/2 z-10 hidden h-[102vh] w-[82px] -translate-y-1/2 overflow-hidden rounded-[10px] bg-black/15 select-none md:block lg:right-[66px] xl:right-[82px] 2xl:right-[180px]"
+            className="pointer-events-none absolute right-[30px] top-1/2 z-10 hidden h-[102vh] w-[82px] -translate-y-1/2 overflow-hidden rounded-[10px]  select-none md:block lg:right-[66px] xl:right-[82px] 2xl:right-[180px]"
           >
             <div className="side-menu-marquee-track flex min-h-[200%] flex-col justify-around py-6">
               {[...sideMenuWords, ...sideMenuWords].map((word, index) => (
@@ -233,7 +233,7 @@ const Navbar = () => {
                   className="flex min-h-[220px] items-center justify-center gap-5"
                 >
                   
-                  <span className="normal [writing-mode:vertical-rl] rotate-180 whitespace-nowrap text-[24px] font-semibold tracking-[0.03em] text-white/28">
+                  <span className="normal [writing-mode:vertical-rl] rotate-180 whitespace-nowrap text-[24px] font-semibold tracking-[0.03em] text-[#424242]">
                     {word}
                   </span>
                 </div>
