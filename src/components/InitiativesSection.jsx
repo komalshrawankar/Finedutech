@@ -38,7 +38,7 @@ const initiatives = [
     hoverImage: hoverImg4,
     title: "Financial-Literacy Publications",
     description: "Professionally Designed NEP-Aligned Books",
-    path: "/program",
+    path: "/financial-literacy",
   },
 ];
 

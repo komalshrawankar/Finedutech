@@ -8,8 +8,9 @@ const quickLinks = [
   { name: "Home", path: "/" },
   { name: "About Us", path: "/about" },
   { name: "Program", path: "/program" },
-  { name: "Fin-Edu Quest", path: "/fin-edu-quest" },
-  { name: "Money Mastery", path: "/money-mastery" },
+  { name: "School", path: "/school" },
+  { name: "Contact", path: "/contact" },
+  { name: "Blog", path: "/blog" },
 ];
 
 const Footer = () => {

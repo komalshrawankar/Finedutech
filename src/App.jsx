@@ -6,6 +6,7 @@ import About from "./pages/About";
 import ProgramPage from "./pages/ProgramPage";
 import FinEduQuest from "./pages/FinEduQuest";
 import MoneyMastery from "./pages/MoneyMastery";
+import Financial from "./pages/Financial";
 const App = () => {
   return (
     <BrowserRouter>
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="/program" element={<ProgramPage />} />
         <Route path="/fin-edu-quest" element={<FinEduQuest />} />
         <Route path="/money-mastery" element={<MoneyMastery />} />
+        <Route path="/financial-literacy" element={<Financial />} />
       </Routes>
     </BrowserRouter>
   );

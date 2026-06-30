@@ -36,7 +36,7 @@ const HeroSection = () => {
           <img
             src={lightImg}
             alt=""
-            className="absolute right-[11%] top-[46%] w-[24px] min-[480px]:w-[30px] sm:right-[12%] sm:top-[44%] sm:w-[40px] md:w-[48px] lg:right-[12%] lg:top-[42%] lg:w-[52px] animate-pulse-pop select-none pointer-events-none"
+            className="absolute right-[11%] top-[14%] w-[24px] min-[480px]:w-[30px] sm:right-[12%] sm:top-[44%] sm:w-[40px] md:w-[48px] lg:right-[12%] lg:top-[42%] lg:w-[52px] animate-pulse-pop select-none pointer-events-none"
           />
 
           <img
